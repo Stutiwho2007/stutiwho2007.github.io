@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="MINHO — Creative Writing & Digital Content Studio. Writing, storytelling, copywriting and editing for individuals, creators and brands.">
+  <meta name="theme-color" content="#11110f">
+  <title>MINHO — Creative Writing & Digital Content Studio</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --ink:#11110f;
+      --ink-2:#1b1b18;
+      --paper:#f7f5ef;
+      --paper-2:#efede5;
+      --white:#fffdf8;
+      --sage:#8d9674;
+      --sage-soft:#dfe3d2;
+      --muted:#6d6c64;
+      --line:#d8d5ca;
+      --serif:'Playfair Display', Georgia, serif;
+      --sans:'DM Sans', Arial, sans-serif;
+      --max:1240px;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);line-height:1.55}
+    body.menu-open{overflow:hidden}
+    a{color:inherit;text-decoration:none}
+    button,input,textarea,select{font:inherit}
+    button{cursor:pointer}
+    img{max-width:100%;display:block}
+    ::selection{background:var(--ink);color:var(--paper)}
+
+    .container{width:min(var(--max),calc(100% - 48px));margin-inline:auto}
+    .eyebrow{display:inline-flex;align-items:center;gap:10px;text-transform:uppercase;letter-spacing:.18em;font-size:10px;font-weight:700;color:var(--sage)}
+    .eyebrow::before{content:"";width:28px;height:1px;background:currentColor}
+    .serif{font-family:var(--serif)}
+
+    /* NAV */
+    .nav-wrap{position:sticky;top:0;z-index:1000;background:rgba(247,245,239,.9);backdrop-filter:blur(18px);border-bottom:1px solid rgba(216,213,202,.75)}
+    nav{height:78px;display:flex;align-items:center;justify-content:space-between}
+    .logo{width:108px;height:auto}
+    .nav-links{display:flex;align-items:center;gap:30px;font-size:13px;font-weight:600}
+    .nav-links a{color:#3e3d37;transition:color .2s ease}
+    .nav-links a:hover{color:var(--sage)}
+    .nav-cta{padding:11px 17px;border:1px solid var(--ink);border-radius:999px}
+    .nav-cta:hover{background:var(--ink);color:var(--paper)!important}
+    .menu{display:none;border:0;background:none;color:var(--ink);font-size:26px;padding:4px}
+
+    /* HERO */
+    .hero{padding:100px 0 90px;overflow:hidden}
+    .hero-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:80px;align-items:center}
+    .hero h1{font-family:var(--serif);font-size:clamp(62px,8vw,112px);font-weight:500;line-height:.92;letter-spacing:-.055em;margin:24px 0 28px;max-width:850px}
+    .hero h1 em{font-style:italic}
+    .hero-copy{max-width:610px;font-size:18px;color:var(--muted);margin:0 0 34px}
+    .actions{display:flex;gap:12px;flex-wrap:wrap}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;border:1px solid var(--ink);border-radius:999px;padding:14px 21px;font-size:13px;font-weight:700;transition:transform .2s ease,background .2s ease,color .2s ease,border-color .2s ease}
+    .btn:hover{transform:translateY(-2px)}
+    .btn-dark{background:var(--ink);color:var(--paper)}
+    .btn-dark:hover{background:var(--sage);border-color:var(--sage)}
+    .btn-light{background:transparent}
+    .btn-light:hover{background:var(--white)}
+
+    .hero-art{min-height:500px;display:grid;place-items:center;position:relative}
+    .hero-circle{width:min(500px,90vw);aspect-ratio:1;border:1px solid var(--line);border-radius:50%;position:absolute}
+    .hero-circle::before,.hero-circle::after{content:"";position:absolute;border:1px solid var(--line);border-radius:50%;inset:12%}
+    .hero-circle::after{inset:25%}
+    .hero-card{width:min(410px,88%);background:var(--ink);color:var(--paper);border-radius:28px;padding:38px;position:relative;box-shadow:0 35px 80px rgba(17,17,15,.16);transform:rotate(-2deg)}
+    .hero-card-tag{position:absolute;right:-18px;top:-18px;background:var(--sage-soft);color:var(--ink);border-radius:999px;padding:10px 15px;font-size:10px;font-weight:700;letter-spacing:.16em}
+    .hero-card-mark{font-family:var(--serif);font-size:82px;line-height:.75;color:var(--sage-soft);margin-bottom:55px}
+    .hero-card h2{font-family:var(--serif);font-size:38px;line-height:1.05;font-weight:500;margin:0 0 18px}
+    .hero-card p{font-size:14px;color:#c9c9bf;margin:0}
+
+    /* STRIP */
+    .strip{border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+    .strip-inner{min-height:68px;display:flex;align-items:center;justify-content:space-between;gap:25px;color:var(--muted);font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.15em}
+    .strip-dot{width:4px;height:4px;border-radius:50%;background:var(--sage)}
+
+    /* COMMON */
+    section{padding:115px 0}
+    .section-head{display:flex;justify-content:space-between;align-items:end;gap:45px;margin-bottom:52px}
+    .section-title{font-family:var(--serif);font-size:clamp(46px,6vw,78px);font-weight:500;line-height:.98;letter-spacing:-.045em;margin:17px 0 0}
+    .section-intro{max-width:520px;color:var(--muted);font-size:16px;margin:0}
+
+    /* MANIFESTO */
+    .manifesto{background:var(--ink);color:var(--paper);overflow:hidden}
+    .manifesto .eyebrow{color:#aab293}
+    .manifesto-head{display:flex;justify-content:space-between;gap:50px;align-items:end;margin-bottom:55px}
+    .manifesto-title{font-family:var(--serif);font-size:clamp(46px,6vw,78px);line-height:.96;font-weight:500;letter-spacing:-.045em;margin:17px 0 0}
+    .manifesto-copy{max-width:420px;color:#b8b8ae;margin:0}
+    .carousel-viewport{overflow:hidden;border-radius:30px}
+    .carousel-track{display:flex;width:100%;transition:transform 560ms cubic-bezier(.22,1,.36,1);will-change:transform}
+    .manifesto-card{flex:0 0 100%;min-height:620px;background:#1a1a17;border:1px solid #292923;border-radius:30px;padding:34px;display:flex;flex-direction:column;justify-content:space-between}
+    .manifesto-meta{display:flex;justify-content:space-between;color:#77786f;font-size:10px;text-transform:uppercase;letter-spacing:.16em;font-weight:700}
+    .manifesto-letter{font-family:var(--serif);font-size:clamp(190px,31vw,440px);line-height:.67;letter-spacing:-.09em;font-weight:500;color:var(--sage-soft);margin-left:-14px}
+    .manifesto-bottom{display:flex;align-items:end;justify-content:space-between;gap:30px}
+    .manifesto-bottom p{font-family:var(--serif);font-size:clamp(27px,3.5vw,52px);line-height:1.02;letter-spacing:-.03em;max-width:820px;margin:0}
+    .manifesto-card-arrow{font-size:32px;color:#8e8e83}
+    .carousel-controls{display:flex;align-items:center;justify-content:space-between;margin-top:22px}
+    .carousel-arrows{display:flex;gap:10px}
+    .circle-btn{width:52px;height:52px;border:1px solid #44443d;background:transparent;color:var(--paper);border-radius:50%;font-size:21px;transition:background .2s,color .2s,transform .2s,opacity .2s}
+    .circle-btn:hover:not(:disabled){background:var(--paper);color:var(--ink);transform:translateX(2px)}
+    .circle-btn:disabled{opacity:.25;cursor:default}
+    .carousel-progress{display:flex;align-items:center;gap:13px;color:#88887e;font-size:10px;letter-spacing:.15em;font-weight:700}
+    .progress-line{width:80px;height:1px;background:#44443d}
+
+    /* SERVICES */
+    .services{background:var(--paper-2)}
+    .service-grid{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--line)}
+    .service{padding:36px 32px;min-height:330px;background:var(--paper-2);border-right:1px solid var(--line);transition:background .25s,transform .25s}
+    .service:last-child{border-right:0}
+    .service:hover{background:var(--white);transform:translateY(-5px)}
+    .service-num{font-size:11px;color:var(--sage);font-weight:700;letter-spacing:.15em}
+    .service h3{font-family:var(--serif);font-size:38px;font-weight:500;line-height:1;margin:70px 0 18px;letter-spacing:-.03em}
+    .service p{font-size:14px;color:var(--muted);max-width:330px;margin:0}
+    .service-link{display:inline-flex;margin-top:25px;font-size:12px;font-weight:700}
+
+    /* AUDIENCE */
+    .audience-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .audience-card{background:var(--white);border:1px solid var(--line);border-radius:22px;padding:30px;min-height:250px}
+    .audience-card h3{font-family:var(--serif);font-size:32px;font-weight:500;margin:65px 0 12px}
+    .audience-card p{color:var(--muted);font-size:14px;margin:0}
+    .audience-card span{font-size:10px;letter-spacing:.15em;font-weight:700;color:var(--sage)}
+    .audience-note{margin-top:28px;font-family:var(--serif);font-size:clamp(25px,3vw,39px);line-height:1.08;max-width:800px}
+
+    /* WORK */
+    .work{background:var(--paper-2)}
+    .work-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .work-card{background:var(--white);border:1px solid var(--line);border-radius:26px;padding:34px;min-height:430px;display:flex;flex-direction:column;justify-content:space-between;transition:transform .25s,box-shadow .25s}
+    .work-card:hover{transform:translateY(-5px);box-shadow:0 20px 45px rgba(17,17,15,.08)}
+    .work-card:focus-visible{outline:2px solid var(--sage);outline-offset:4px}
+    .work-meta{display:flex;justify-content:space-between;font-size:10px;text-transform:uppercase;letter-spacing:.15em;font-weight:700;color:var(--muted)}
+    .work-card h3{font-family:var(--serif);font-size:clamp(35px,4vw,56px);line-height:.98;font-weight:500;letter-spacing:-.04em;margin:35px 0 18px}
+    .work-excerpt{font-family:var(--serif);font-style:italic;font-size:18px;line-height:1.5;max-width:500px;color:#484740;margin:0}
+    .work-footer{display:flex;justify-content:space-between;align-items:end;margin-top:40px}
+    .work-type{font-size:12px;color:var(--muted)}
+    .text-arrow{font-size:22px}
+
+    /* WHY */
+    .why-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:90px;align-items:start}
+    .why-statement{font-family:var(--serif);font-size:clamp(36px,4.8vw,65px);line-height:1;letter-spacing:-.04em;margin:0}
+    .why-list{border-top:1px solid var(--line)}
+    .why-item{display:grid;grid-template-columns:60px 1fr;gap:20px;padding:27px 0;border-bottom:1px solid var(--line)}
+    .why-item-num{font-size:11px;color:var(--sage);font-weight:700;letter-spacing:.12em}
+    .why-item h3{font-family:var(--serif);font-size:27px;font-weight:500;margin:0 0 7px}
+    .why-item p{color:var(--muted);font-size:14px;max-width:600px;margin:0}
+
+    /* PROCESS */
+    .process{background:var(--ink);color:var(--paper)}
+    .process .eyebrow{color:#aab293}
+    .process-intro{color:#b9b9af}
+    .process-grid{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid #35352e;border-bottom:1px solid #35352e}
+    .process-step{padding:32px 24px 38px;border-right:1px solid #35352e;min-height:300px}
+    .process-step:last-child{border-right:0}
+    .process-num{font-size:11px;color:#929b78;font-weight:700;letter-spacing:.15em}
+    .process-step h3{font-family:var(--serif);font-size:34px;font-weight:500;margin:75px 0 14px}
+    .process-step p{color:#a9a9a0;font-size:14px;margin:0}
+
+    /* ABOUT */
+    .about-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:100px;align-items:center}
+    .about-mark{background:var(--sage-soft);border-radius:28px;min-height:430px;display:grid;place-items:center;position:relative;overflow:hidden}
+    .about-mark::before{content:"";position:absolute;width:330px;height:330px;border:1px solid rgba(17,17,15,.15);border-radius:50%}
+    .about-mark span{font-family:var(--serif);font-size:170px;position:relative}
+    .about-copy h2{font-family:var(--serif);font-size:clamp(42px,5vw,70px);line-height:.98;font-weight:500;letter-spacing:-.04em;margin:17px 0 24px}
+    .about-copy p{color:var(--muted);max-width:650px;margin:0 0 17px}
+    .founder-line{margin-top:28px;padding-top:22px;border-top:1px solid var(--line);font-size:13px}
+    .founder-line strong{display:block;font-family:var(--serif);font-size:22px;font-weight:500;margin-bottom:2px}
+
+    /* FAQ */
+    .faq{background:var(--paper-2)}
+    .faq-list{border-top:1px solid var(--line)}
+    .faq-item{border-bottom:1px solid var(--line)}
+    .faq-question{width:100%;display:flex;justify-content:space-between;align-items:center;gap:30px;text-align:left;border:0;background:transparent;padding:24px 0;color:var(--ink);font-family:var(--serif);font-size:24px}
+    .faq-plus{font-family:var(--sans);font-size:25px;font-weight:400;transition:transform .25s}
+    .faq-answer{max-height:0;overflow:hidden;transition:max-height .35s ease}
+    .faq-answer p{max-width:760px;color:var(--muted);font-size:14px;margin:0;padding:0 60px 25px 0}
+    .faq-item.open .faq-plus{transform:rotate(45deg)}
+
+    /* CONTACT */
+    .contact{background:var(--sage-soft)}
+    .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:85px;align-items:start}
+    .contact h2{font-family:var(--serif);font-size:clamp(50px,6vw,86px);line-height:.93;font-weight:500;letter-spacing:-.05em;margin:17px 0 25px}
+    .contact-copy{color:#5d6154;max-width:500px}
+    .email-link{display:inline-block;margin-top:30px;font-family:var(--serif);font-size:24px;border-bottom:1px solid var(--ink)}
+    .contact-form{background:var(--white);border:1px solid rgba(17,17,15,.12);border-radius:25px;padding:30px}
+    .field{margin-bottom:17px}
+    .field label{display:block;font-size:10px;text-transform:uppercase;letter-spacing:.15em;font-weight:700;margin-bottom:8px;color:#66675f}
+    .field input,.field textarea,.field select{width:100%;border:1px solid var(--line);background:var(--paper);color:var(--ink);border-radius:12px;padding:13px 14px;outline:none;transition:border-color .2s,box-shadow .2s}
+    .field textarea{min-height:130px;resize:vertical}
+    .field input:focus,.field textarea:focus,.field select:focus{border-color:var(--ink);box-shadow:0 0 0 3px rgba(17,17,15,.06)}
+    .form-note{font-size:11px;color:var(--muted);margin:12px 0 0}
+
+    /* FOOTER */
+    footer{background:var(--ink);color:var(--paper);padding:80px 0 28px}
+    .footer-cta{display:flex;justify-content:space-between;align-items:end;gap:40px;padding-bottom:65px;border-bottom:1px solid #34342e}
+    .footer-cta h2{font-family:var(--serif);font-size:clamp(48px,7vw,95px);line-height:.9;font-weight:500;letter-spacing:-.05em;margin:17px 0 0}
+    .footer-cta .eyebrow{color:#aab293}
+    .footer-links{display:flex;gap:15px;flex-wrap:wrap}
+    .footer-links a{color:#c3c3b9;border-bottom:1px solid #55554d;padding-bottom:3px;font-size:13px}
+    .footer-bottom{display:flex;justify-content:space-between;gap:30px;padding-top:25px;color:#7f7f76;font-size:11px}
+
+    /* REVEAL */
+    .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
+    .reveal.visible{opacity:1;transform:none}
+
+    /* RESPONSIVE */
+    @media(max-width:950px){
+      .hero-grid,.why-grid,.about-grid,.contact-grid{grid-template-columns:1fr;gap:55px}
+      .hero-art{min-height:450px}
+      .service-grid,.audience-grid{grid-template-columns:1fr}
+      .service{border-right:0;border-bottom:1px solid var(--line);min-height:auto}
+      .service:last-child{border-bottom:0}
+      .process-grid{grid-template-columns:1fr 1fr}
+      .process-step:nth-child(2){border-right:0}
+      .process-step:nth-child(1),.process-step:nth-child(2){border-bottom:1px solid #35352e}
+      .work-grid{grid-template-columns:1fr}
+      .manifesto-card{min-height:560px}
+      .footer-cta{display:block}
+      .footer-links{margin-top:35px}
+    }
+
+    @media(max-width:720px){
+      .container{width:min(var(--max),calc(100% - 34px))}
+      nav{height:70px}
+      .nav-links{display:none;position:fixed;inset:70px 0 0;background:var(--paper);flex-direction:column;align-items:flex-start;padding:30px 24px;gap:22px;font-size:18px}
+      .nav-links.open{display:flex}
+      .menu{display:block}
+      .nav-cta{padding:0;border:0}
+      .hero{padding:70px 0 65px}
+      .hero h1{font-size:61px}
+      .hero-copy{font-size:16px}
+      .hero-art{min-height:390px}
+      .hero-card{padding:30px}
+      .hero-card h2{font-size:32px}
+      .strip-inner{justify-content:center;flex-wrap:wrap;padding:17px 0;gap:12px 20px}
+      .strip-inner span:nth-child(even){display:none}
+      section{padding:82px 0}
+      .section-head,.manifesto-head{display:block}
+      .section-intro,.manifesto-copy{margin-top:22px}
+      .manifesto-card{min-height:480px;padding:24px;border-radius:22px}
+      .manifesto-letter{font-size:200px}
+      .manifesto-bottom p{font-size:25px}
+      .circle-btn{width:48px;height:48px}
+      .progress-line{width:45px}
+      .process-grid{grid-template-columns:1fr}
+      .process-step{border-right:0!important;border-bottom:1px solid #35352e!important;min-height:auto}
+      .process-step:last-child{border-bottom:0!important}
+      .process-step h3{margin-top:50px}
+      .about-mark{min-height:330px}
+      .about-mark span{font-size:125px}
+      .faq-question{font-size:20px}
+      .faq-answer p{padding-right:20px}
+      .contact-grid{gap:35px}
+      .contact-form{padding:22px}
+      .footer-bottom{display:block}
+      .footer-bottom span{display:block;margin-top:8px}
+    }
+
+    @media(prefers-reduced-motion:reduce){
+      html{scroll-behavior:auto}
+      *,*::before,*::after{transition:none!important;animation:none!important}
+      .reveal{opacity:1;transform:none}
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVIGATION -->
+  <header class="nav-wrap">
+    <div class="container">
+      <nav>
+        <a href="#top" aria-label="MINHO home">
+          <img class="logo" src="minho-logo-transparent.png" alt="MINHO">
+        </a>
+
+        <div class="nav-links" id="navLinks">
+          <a href="#services">Services</a>
+          <a href="#work">Work</a>
+          <a href="#process">Process</a>
+          <a href="#about">About</a>
+          <a href="#faq">FAQ</a>
+          <a class="nav-cta" href="#contact">Start a project</a>
+        </div>
+
+        <button class="menu" id="menuButton" aria-label="Open menu" aria-expanded="false">☰</button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="reveal">
+          <span class="eyebrow">Creative Writing & Digital Content Studio</span>
+          <h1>Words worth <em>remembering.</em></h1>
+          <p class="hero-copy">
+            MINHO turns ideas, stories, feelings and brands into writing people can feel, understand and remember.
+          </p>
+          <div class="actions">
+            <a class="btn btn-dark" href="#contact">Start a project <span>→</span></a>
+            <a class="btn btn-light" href="#work">Explore the work <span>↓</span></a>
+          </div>
+        </div>
+
+        <div class="hero-art reveal">
+          <div class="hero-circle"></div>
+          <div class="hero-card">
+            <span class="hero-card-tag">MINHO STUDIO</span>
+            <div class="hero-card-mark">M.</div>
+            <h2>Give your ideas the words they deserve.</h2>
+            <p>Creative writing · storytelling · copy · editing</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STRIP -->
+    <div class="strip">
+      <div class="container strip-inner">
+        <span>Writing</span><span class="strip-dot"></span>
+        <span>Storytelling</span><span class="strip-dot"></span>
+        <span>Copy</span><span class="strip-dot"></span>
+        <span>Editing</span><span class="strip-dot"></span>
+        <span>Ideas into words</span>
+      </div>
+    </div>
+
+    <!-- MINHO MANIFESTO -->
+    <section class="manifesto" id="minho">
+      <div class="container">
+        <div class="manifesto-head reveal">
+          <div>
+            <span class="eyebrow">The MINHO idea</span>
+            <h2 class="manifesto-title">Five letters.<br>One way of thinking.</h2>
+          </div>
+          <p class="manifesto-copy">Not a list of values. A point of view on what good words should do.</p>
+        </div>
+
+        <div class="carousel-viewport reveal" id="manifestoCarousel" tabindex="0" aria-label="MINHO manifesto">
+          <div class="carousel-track" id="manifestoTrack">
+            <article class="manifesto-card" aria-label="M of MINHO">
+              <div class="manifesto-meta"><span>MINHO</span><span>01 / 05</span></div>
+              <div class="manifesto-letter">M.</div>
+              <div class="manifesto-bottom"><p>Good words make good ideas impossible to ignore.</p><span class="manifesto-card-arrow">↗</span></div>
+            </article>
+            <article class="manifesto-card" aria-label="I of MINHO">
+              <div class="manifesto-meta"><span>MINHO</span><span>02 / 05</span></div>
+              <div class="manifesto-letter">I.</div>
+              <div class="manifesto-bottom"><p>Ideas become powerful when they find the right words.</p><span class="manifesto-card-arrow">↗</span></div>
+            </article>
+            <article class="manifesto-card" aria-label="N of MINHO">
+              <div class="manifesto-meta"><span>MINHO</span><span>03 / 05</span></div>
+              <div class="manifesto-letter">N.</div>
+              <div class="manifesto-bottom"><p>Not everything needs more words. It needs better ones.</p><span class="manifesto-card-arrow">↗</span></div>
+            </article>
+            <article class="manifesto-card" aria-label="H of MINHO">
+              <div class="manifesto-meta"><span>MINHO</span><span>04 / 05</span></div>
+              <div class="manifesto-letter">H.</div>
+              <div class="manifesto-bottom"><p>Human stories deserve to be heard, felt and remembered.</p><span class="manifesto-card-arrow">↗</span></div>
+            </article>
+            <article class="manifesto-card" aria-label="O of MINHO">
+              <div class="manifesto-meta"><span>MINHO</span><span>05 / 05</span></div>
+              <div class="manifesto-letter">O.</div>
+              <div class="manifesto-bottom"><p>Original ideas deserve words that are unmistakably their own.</p><span class="manifesto-card-arrow">↗</span></div>
+            </article>
+          </div>
+        </div>
+
+        <div class="carousel-controls reveal">
+          <div class="carousel-progress"><span id="carouselCurrent">01</span><span class="progress-line"></span><span>05</span></div>
+          <div class="carousel-arrows">
+            <button class="circle-btn" id="manifestoPrev" aria-label="Previous letter">←</button>
+            <button class="circle-btn" id="manifestoNext" aria-label="Next letter">→</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section class="services" id="services">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <span class="eyebrow">What MINHO does</span>
+            <h2 class="section-title">Words, shaped<br>with intention.</h2>
+          </div>
+          <p class="section-intro">From a blank page to the final polish, MINHO helps turn ideas into writing that sounds considered, human and unmistakably yours.</p>
+        </div>
+
+        <div class="service-grid">
+          <article class="service reveal">
+            <span class="service-num">01 — CREATIVE WRITING</span>
+            <h3>Stories & poetry</h3>
+            <p>Poetry, short-form storytelling, personal writing, letters and creative pieces built around emotion, voice and meaning.</p>
+            <a class="service-link" href="#contact">Discuss a piece →</a>
+          </article>
+          <article class="service reveal">
+            <span class="service-num">02 — COPYWRITING</span>
+            <h3>Words for brands</h3>
+            <p>Website copy, captions, campaigns, brand messaging and content designed to make an idea clearer and more memorable.</p>
+            <a class="service-link" href="#contact">Build your copy →</a>
+          </article>
+          <article class="service reveal">
+            <span class="service-num">03 — EDITING</span>
+            <h3>Make it stronger</h3>
+            <p>Proofreading, refinement, restructuring and thoughtful edits that strengthen your writing without erasing your voice.</p>
+            <a class="service-link" href="#contact">Refine my work →</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHO -->
+    <section id="for-you">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <span class="eyebrow">Who we write for</span>
+            <h2 class="section-title">Made for people<br>with something to say.</h2>
+          </div>
+        </div>
+
+        <div class="audience-grid">
+          <article class="audience-card reveal"><span>01 — INDIVIDUALS</span><h3>Your story.</h3><p>Personal poems, letters, stories, profiles and writing that needs to sound like you.</p></article>
+          <article class="audience-card reveal"><span>02 — CREATORS</span><h3>Your voice.</h3><p>Captions, scripts, storytelling and personal-brand content that gives your ideas a stronger shape.</p></article>
+          <article class="audience-card reveal"><span>03 — BRANDS</span><h3>Your message.</h3><p>Website copy, social content, campaigns and brand language that makes your business easier to remember.</p></article>
+        </div>
+
+        <p class="audience-note reveal">Different voices. Different stories. One thing in common: they deserve good words.</p>
+      </div>
+    </section>
+
+    <!-- WORK -->
+    <section class="work" id="work">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <span class="eyebrow">Selected work</span>
+            <h2 class="section-title">A few words<br>from the studio.</h2>
+          </div>
+          <p class="section-intro">A growing collection of creative work. As MINHO takes on more projects, this space will grow with it.</p>
+        </div>
+
+        <div class="work-grid">
+          <a class="work-card reveal" href="poem-love.html" aria-label="Read Love in the Digital Age">
+            <div>
+              <div class="work-meta"><span>01</span><span>Poetry · Personal Writing</span></div>
+              <h3>Love in the<br>Digital Age</h3>
+              <p class="work-excerpt">A poem about connection, distance, screens, waiting — and the strange intimacy of loving someone through a digital world.</p>
+            </div>
+            <div class="work-footer"><span class="work-type">Creative writing</span><span class="text-arrow">↗</span></div>
+          </a>
+
+          <a class="work-card reveal" href="poem-fire.html" aria-label="Read A Fire He Was">
+            <div>
+              <div class="work-meta"><span>02</span><span>Poetry · Emotional Storytelling</span></div>
+              <h3>A Fire<br>He Was</h3>
+              <p class="work-excerpt">A piece about the instant impact of meeting someone, the warmth that follows and the ache of feelings that remain unreturned.</p>
+            </div>
+            <div class="work-footer"><span class="work-type">Creative writing</span><span class="text-arrow">↗</span></div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHY MINHO -->
+    <section id="why">
+      <div class="container why-grid">
+        <div class="reveal">
+          <span class="eyebrow">Why MINHO</span>
+          <p class="why-statement">Because good writing isn't about sounding impressive. It's about making the right thing impossible to miss.</p>
+        </div>
+
+        <div class="why-list">
+          <article class="why-item reveal"><span class="why-item-num">01</span><div><h3>Original, not generic.</h3><p>Your writing should sound like a person with a point of view — not a template.</p></div></article>
+          <article class="why-item reveal"><span class="why-item-num">02</span><div><h3>Human, not hollow.</h3><p>We care about rhythm, feeling, clarity and the little details that make words connect.</p></div></article>
+          <article class="why-item reveal"><span class="why-item-num">03</span><div><h3>Thoughtful, not overworked.</h3><p>Every line has a job. Sometimes that means adding words. Sometimes it means taking them away.</p></div></article>
+          <article class="why-item reveal"><span class="why-item-num">04</span><div><h3>Built around your voice.</h3><p>MINHO can shape the words without taking the personality out of what you are trying to say.</p></div></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROCESS -->
+    <section class="process" id="process">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <span class="eyebrow">The process</span>
+            <h2 class="section-title">Simple from<br>start to finish.</h2>
+          </div>
+          <p class="section-intro process-intro">You bring the idea. We bring the words, structure and attention to detail.</p>
+        </div>
+
+        <div class="process-grid">
+          <article class="process-step reveal"><span class="process-num">01 — TELL US</span><h3>Start with the idea.</h3><p>Send a brief, a rough thought, a reference or simply tell us what you need.</p></article>
+          <article class="process-step reveal"><span class="process-num">02 — SHAPE IT</span><h3>Find the direction.</h3><p>We clarify the purpose, audience, voice and shape the piece should take.</p></article>
+          <article class="process-step reveal"><span class="process-num">03 — WRITE</span><h3>Make it real.</h3><p>MINHO turns the direction into polished writing with a strong voice and clear intent.</p></article>
+          <article class="process-step reveal"><span class="process-num">04 — REFINE</span><h3>Make it yours.</h3><p>We review, refine and make sure the final words feel right before delivery.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT / FOUNDER -->
+    <section id="about">
+      <div class="container about-grid">
+        <div class="about-mark reveal"><span>MINHO</span></div>
+        <div class="about-copy reveal">
+          <span class="eyebrow">The studio</span>
+          <h2>MINHO started with a simple belief: words can change how an idea is felt.</h2>
+          <p>MINHO is an independent creative writing and digital content studio built around writing that feels personal, purposeful and memorable.</p>
+          <p>The studio works across creative writing, storytelling, copywriting and editing — helping individuals, creators and brands find a clearer, stronger way to say what they mean.</p>
+          <div class="founder-line"><strong>Shwetangi Srivastava</strong>Founder & Creative Director, MINHO</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq" id="faq">
+      <div class="container">
+        <div class="section-head reveal">
+          <div><span class="eyebrow">FAQ</span><h2 class="section-title">Before we<br>begin.</h2></div>
+          <p class="section-intro">A few quick answers. If you still have a question, just ask.</p>
+        </div>
+
+        <div class="faq-list">
+          <div class="faq-item reveal">
+            <button class="faq-question" aria-expanded="false">Do you work with individuals?<span class="faq-plus">+</span></button>
+            <div class="faq-answer"><p>Yes. MINHO works with individuals on poems, personal writing, letters, stories and other custom creative pieces.</p></div>
+          </div>
+          <div class="faq-item reveal">
+            <button class="faq-question" aria-expanded="false">Do you work with brands?<span class="faq-plus">+</span></button>
+            <div class="faq-answer"><p>Yes. Brand work can include website copy, social content, campaigns, messaging and other digital content.</p></div>
+          </div>
+          <div class="faq-item reveal">
+            <button class="faq-question" aria-expanded="false">Can I send you something I've already written?<span class="faq-plus">+</span></button>
+            <div class="faq-answer"><p>Absolutely. Editing can range from proofreading and polishing to restructuring and deeper refinement while keeping your voice intact.</p></div>
+          </div>
+          <div class="faq-item reveal">
+            <button class="faq-question" aria-expanded="false">How do I start a project?<span class="faq-plus">+</span></button>
+            <div class="faq-answer"><p>Use the project form below or email foundminhostudio@gmail.com with a short description of what you need, your timeline and any useful references.</p></div>
+          </div>
+          <div class="faq-item reveal">
+            <button class="faq-question" aria-expanded="false">Can I request something not listed here?<span class="faq-plus">+</span></button>
+            <div class="faq-answer"><p>Yes. If it involves words, storytelling or digital content, tell us what you're trying to create and we'll see how MINHO can help.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="contact" id="contact">
+      <div class="container contact-grid">
+        <div class="reveal">
+          <span class="eyebrow">Start a project</span>
+          <h2>Have something worth saying?</h2>
+          <p class="contact-copy">Tell MINHO what you're building, writing or trying to express. You don't need a perfect brief — a starting point is enough.</p>
+          <a class="email-link" href="mailto:foundminhostudio@gmail.com">foundminhostudio@gmail.com</a>
+        </div>
+
+        <form class="contact-form reveal" id="projectForm">
+          <div class="field"><label for="name">Name</label><input id="name" name="name" type="text" placeholder="Your name" required></div>
+          <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" placeholder="you@example.com" required></div>
+          <div class="field"><label for="type">What do you need?</label><select id="type" name="type"><option>Creative writing</option><option>Copywriting / brand content</option><option>Editing / proofreading</option><option>Something else</option></select></div>
+          <div class="field"><label for="message">Tell us about the project</label><textarea id="message" name="message" placeholder="A few lines about your idea, what you need and your timeline..." required></textarea></div>
+          <button class="btn btn-dark" type="submit">Send project inquiry →</button>
+          <p class="form-note">Submitting opens your email app with the project details. No backend is required.</p>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-cta">
+        <div>
+          <span class="eyebrow">MINHO Studio</span>
+          <h2>Let's make it<br>worth saying.</h2>
+        </div>
+        <div class="footer-links">
+          <a href="#contact">Start a project</a>
+          <a href="mailto:foundminhostudio@gmail.com">Email</a>
+          <a href="https://www.instagram.com/minho_studio/" target="_blank" rel="noopener">Instagram</a>
+          <a href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>MINHO — Creative Writing & Digital Content Studio</span>
+        <span>© 2026 MINHO Studio. All rights reserved.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    /* MOBILE NAV */
+    const menuButton = document.getElementById('menuButton');
+    const navLinks = document.getElementById('navLinks');
+
+    menuButton.addEventListener('click', () => {
+      const open = navLinks.classList.toggle('open');
+      menuButton.setAttribute('aria-expanded', open ? 'true' : 'false');
+      menuButton.textContent = open ? '×' : '☰';
+      document.body.classList.toggle('menu-open', open);
+    });
+
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        menuButton.setAttribute('aria-expanded', 'false');
+        menuButton.textContent = '☰';
+        document.body.classList.remove('menu-open');
+      });
+    });
+
+    /* MINHO CAROUSEL */
+    const track = document.getElementById('manifestoTrack');
+    const carousel = document.getElementById('manifestoCarousel');
+    const next = document.getElementById('manifestoNext');
+    const prev = document.getElementById('manifestoPrev');
+    const current = document.getElementById('carouselCurrent');
+    const total = track.children.length;
+    let index = 0;
+
+    function updateCarousel() {
+      track.style.transform = `translate3d(-${index * 100}%, 0, 0)`;
+      current.textContent = String(index + 1).padStart(2, '0');
+      prev.disabled = index === 0;
+      next.disabled = index === total - 1;
+    }
+
+    function goTo(i) {
+      index = Math.max(0, Math.min(total - 1, i));
+      updateCarousel();
+    }
+
+    next.addEventListener('click', () => goTo(index + 1));
+    prev.addEventListener('click', () => goTo(index - 1));
+
+    carousel.addEventListener('keydown', e => {
+      if (e.key === 'ArrowRight') goTo(index + 1);
+      if (e.key === 'ArrowLeft') goTo(index - 1);
+    });
+
+    let startX = 0;
+    carousel.addEventListener('touchstart', e => { startX = e.changedTouches[0].screenX; }, {passive:true});
+    carousel.addEventListener('touchend', e => {
+      const distance = startX - e.changedTouches[0].screenX;
+      if (Math.abs(distance) > 50) distance > 0 ? goTo(index + 1) : goTo(index - 1);
+    }, {passive:true});
+
+    updateCarousel();
+
+    /* FAQ */
+    document.querySelectorAll('.faq-question').forEach(button => {
+      button.addEventListener('click', () => {
+        const item = button.closest('.faq-item');
+        const answer = item.querySelector('.faq-answer');
+        const isOpen = item.classList.contains('open');
+
+        document.querySelectorAll('.faq-item.open').forEach(other => {
+          other.classList.remove('open');
+          other.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+          other.querySelector('.faq-answer').style.maxHeight = null;
+        });
+
+        if (!isOpen) {
+          item.classList.add('open');
+          button.setAttribute('aria-expanded', 'true');
+          answer.style.maxHeight = answer.scrollHeight + 'px';
+        }
+      });
+    });
+
+    /* PROJECT FORM -> MAILTO */
+    document.getElementById('projectForm').addEventListener('submit', e => {
+      e.preventDefault();
+      const form = new FormData(e.currentTarget);
+      const name = form.get('name');
+      const email = form.get('email');
+      const type = form.get('type');
+      const message = form.get('message');
+
+      const subject = encodeURIComponent(`MINHO Project Inquiry — ${type}`);
+      const body = encodeURIComponent(
+        `Name: ${name}\nEmail: ${email}\nProject type: ${type}\n\nProject details:\n${message}`
+      );
+
+      window.location.href = `mailto:foundminhostudio@gmail.com?subject=${subject}&body=${body}`;
+    });
+
+    /* SCROLL REVEAL */
+    const revealItems = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {threshold:0.12});
+
+    revealItems.forEach(item => observer.observe(item));
+  </script>
+</body>
+</html>

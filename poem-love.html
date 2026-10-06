@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Love in the Digital Age — MINHO Creative Writing & Digital Content Studio.">
+  <meta name="theme-color" content="#11110f">
+  <title>Love in the Digital Age — MINHO</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --ink:#11110f;
+      --ink-2:#1b1b18;
+      --paper:#f7f5ef;
+      --paper-2:#efede5;
+      --white:#fffdf8;
+      --sage:#8d9674;
+      --sage-soft:#dfe3d2;
+      --muted:#6d6c64;
+      --line:#d8d5ca;
+      --serif:'Playfair Display', Georgia, serif;
+      --sans:'DM Sans', Arial, sans-serif;
+      --max:1240px;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);line-height:1.55}
+    body.menu-open{overflow:hidden}
+    a{color:inherit;text-decoration:none}
+    button,input,textarea,select{font:inherit}
+    button{cursor:pointer}
+    img{max-width:100%;display:block}
+    ::selection{background:var(--ink);color:var(--paper)}
+
+    .container{width:min(var(--max),calc(100% - 48px));margin-inline:auto}
+    .eyebrow{display:inline-flex;align-items:center;gap:10px;text-transform:uppercase;letter-spacing:.18em;font-size:10px;font-weight:700;color:var(--sage)}
+    .eyebrow::before{content:"";width:28px;height:1px;background:currentColor}
+    .serif{font-family:var(--serif)}
+
+    /* NAV */
+    .nav-wrap{position:sticky;top:0;z-index:1000;background:rgba(247,245,239,.9);backdrop-filter:blur(18px);border-bottom:1px solid rgba(216,213,202,.75)}
+    nav{height:78px;display:flex;align-items:center;justify-content:space-between}
+    .logo{width:108px;height:auto}
+    .nav-links{display:flex;align-items:center;gap:30px;font-size:13px;font-weight:600}
+    .nav-links a{color:#3e3d37;transition:color .2s ease}
+    .nav-links a:hover{color:var(--sage)}
+    .nav-cta{padding:11px 17px;border:1px solid var(--ink);border-radius:999px}
+    .nav-cta:hover{background:var(--ink);color:var(--paper)!important}
+    .menu{display:none;border:0;background:none;color:var(--ink);font-size:26px;padding:4px}
+
+    /* HERO */
+    .hero{padding:100px 0 90px;overflow:hidden}
+    .hero-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:80px;align-items:center}
+    .hero h1{font-family:var(--serif);font-size:clamp(62px,8vw,112px);font-weight:500;line-height:.92;letter-spacing:-.055em;margin:24px 0 28px;max-width:850px}
+    .hero h1 em{font-style:italic}
+    .hero-copy{max-width:610px;font-size:18px;color:var(--muted);margin:0 0 34px}
+    .actions{display:flex;gap:12px;flex-wrap:wrap}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;border:1px solid var(--ink);border-radius:999px;padding:14px 21px;font-size:13px;font-weight:700;transition:transform .2s ease,background .2s ease,color .2s ease,border-color .2s ease}
+    .btn:hover{transform:translateY(-2px)}
+    .btn-dark{background:var(--ink);color:var(--paper)}
+    .btn-dark:hover{background:var(--sage);border-color:var(--sage)}
+    .btn-light{background:transparent}
+    .btn-light:hover{background:var(--white)}
+
+    .hero-art{min-height:500px;display:grid;place-items:center;position:relative}
+    .hero-circle{width:min(500px,90vw);aspect-ratio:1;border:1px solid var(--line);border-radius:50%;position:absolute}
+    .hero-circle::before,.hero-circle::after{content:"";position:absolute;border:1px solid var(--line);border-radius:50%;inset:12%}
+    .hero-circle::after{inset:25%}
+    .hero-card{width:min(410px,88%);background:var(--ink);color:var(--paper);border-radius:28px;padding:38px;position:relative;box-shadow:0 35px 80px rgba(17,17,15,.16);transform:rotate(-2deg)}
+    .hero-card-tag{position:absolute;right:-18px;top:-18px;background:var(--sage-soft);color:var(--ink);border-radius:999px;padding:10px 15px;font-size:10px;font-weight:700;letter-spacing:.16em}
+    .hero-card-mark{font-family:var(--serif);font-size:82px;line-height:.75;color:var(--sage-soft);margin-bottom:55px}
+    .hero-card h2{font-family:var(--serif);font-size:38px;line-height:1.05;font-weight:500;margin:0 0 18px}
+    .hero-card p{font-size:14px;color:#c9c9bf;margin:0}
+
+    /* STRIP */
+    .strip{border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+    .strip-inner{min-height:68px;display:flex;align-items:center;justify-content:space-between;gap:25px;color:var(--muted);font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.15em}
+    .strip-dot{width:4px;height:4px;border-radius:50%;background:var(--sage)}
+
+    /* COMMON */
+    section{padding:115px 0}
+    .section-head{display:flex;justify-content:space-between;align-items:end;gap:45px;margin-bottom:52px}
+    .section-title{font-family:var(--serif);font-size:clamp(46px,6vw,78px);font-weight:500;line-height:.98;letter-spacing:-.045em;margin:17px 0 0}
+    .section-intro{max-width:520px;color:var(--muted);font-size:16px;margin:0}
+
+    /* MANIFESTO */
+    .manifesto{background:var(--ink);color:var(--paper);overflow:hidden}
+    .manifesto .eyebrow{color:#aab293}
+    .manifesto-head{display:flex;justify-content:space-between;gap:50px;align-items:end;margin-bottom:55px}
+    .manifesto-title{font-family:var(--serif);font-size:clamp(46px,6vw,78px);line-height:.96;font-weight:500;letter-spacing:-.045em;margin:17px 0 0}
+    .manifesto-copy{max-width:420px;color:#b8b8ae;margin:0}
+    .carousel-viewport{overflow:hidden;border-radius:30px}
+    .carousel-track{display:flex;width:100%;transition:transform 560ms cubic-bezier(.22,1,.36,1);will-change:transform}
+    .manifesto-card{flex:0 0 100%;min-height:620px;background:#1a1a17;border:1px solid #292923;border-radius:30px;padding:34px;display:flex;flex-direction:column;justify-content:space-between}
+    .manifesto-meta{display:flex;justify-content:space-between;color:#77786f;font-size:10px;text-transform:uppercase;letter-spacing:.16em;font-weight:700}
+    .manifesto-letter{font-family:var(--serif);font-size:clamp(190px,31vw,440px);line-height:.67;letter-spacing:-.09em;font-weight:500;color:var(--sage-soft);margin-left:-14px}
+    .manifesto-bottom{display:flex;align-items:end;justify-content:space-between;gap:30px}
+    .manifesto-bottom p{font-family:var(--serif);font-size:clamp(27px,3.5vw,52px);line-height:1.02;letter-spacing:-.03em;max-width:820px;margin:0}
+    .manifesto-card-arrow{font-size:32px;color:#8e8e83}
+    .carousel-controls{display:flex;align-items:center;justify-content:space-between;margin-top:22px}
+    .carousel-arrows{display:flex;gap:10px}
+    .circle-btn{width:52px;height:52px;border:1px solid #44443d;background:transparent;color:var(--paper);border-radius:50%;font-size:21px;transition:background .2s,color .2s,transform .2s,opacity .2s}
+    .circle-btn:hover:not(:disabled){background:var(--paper);color:var(--ink);transform:translateX(2px)}
+    .circle-btn:disabled{opacity:.25;cursor:default}
+    .carousel-progress{display:flex;align-items:center;gap:13px;color:#88887e;font-size:10px;letter-spacing:.15em;font-weight:700}
+    .progress-line{width:80px;height:1px;background:#44443d}
+
+    /* SERVICES */
+    .services{background:var(--paper-2)}
+    .service-grid{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--line)}
+    .service{padding:36px 32px;min-height:330px;background:var(--paper-2);border-right:1px solid var(--line);transition:background .25s,transform .25s}
+    .service:last-child{border-right:0}
+    .service:hover{background:var(--white);transform:translateY(-5px)}
+    .service-num{font-size:11px;color:var(--sage);font-weight:700;letter-spacing:.15em}
+    .service h3{font-family:var(--serif);font-size:38px;font-weight:500;line-height:1;margin:70px 0 18px;letter-spacing:-.03em}
+    .service p{font-size:14px;color:var(--muted);max-width:330px;margin:0}
+    .service-link{display:inline-flex;margin-top:25px;font-size:12px;font-weight:700}
+
+    /* AUDIENCE */
+    .audience-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .audience-card{background:var(--white);border:1px solid var(--line);border-radius:22px;padding:30px;min-height:250px}
+    .audience-card h3{font-family:var(--serif);font-size:32px;font-weight:500;margin:65px 0 12px}
+    .audience-card p{color:var(--muted);font-size:14px;margin:0}
+    .audience-card span{font-size:10px;letter-spacing:.15em;font-weight:700;color:var(--sage)}
+    .audience-note{margin-top:28px;font-family:var(--serif);font-size:clamp(25px,3vw,39px);line-height:1.08;max-width:800px}
+
+    /* WORK */
+    .work{background:var(--paper-2)}
+    .work-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .work-card{background:var(--white);border:1px solid var(--line);border-radius:26px;padding:34px;min-height:430px;display:flex;flex-direction:column;justify-content:space-between;transition:transform .25s,box-shadow .25s}
+    .work-card:hover{transform:translateY(-5px);box-shadow:0 20px 45px rgba(17,17,15,.08)}
+    .work-card:focus-visible{outline:2px solid var(--sage);outline-offset:4px}
+    .work-meta{display:flex;justify-content:space-between;font-size:10px;text-transform:uppercase;letter-spacing:.15em;font-weight:700;color:var(--muted)}
+    .work-card h3{font-family:var(--serif);font-size:clamp(35px,4vw,56px);line-height:.98;font-weight:500;letter-spacing:-.04em;margin:35px 0 18px}
+    .work-excerpt{font-family:var(--serif);font-style:italic;font-size:18px;line-height:1.5;max-width:500px;color:#484740;margin:0}
+    .work-footer{display:flex;justify-content:space-between;align-items:end;margin-top:40px}
+    .work-type{font-size:12px;color:var(--muted)}
+    .text-arrow{font-size:22px}
+
+    /* WHY */
+    .why-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:90px;align-items:start}
+    .why-statement{font-family:var(--serif);font-size:clamp(36px,4.8vw,65px);line-height:1;letter-spacing:-.04em;margin:0}
+    .why-list{border-top:1px solid var(--line)}
+    .why-item{display:grid;grid-template-columns:60px 1fr;gap:20px;padding:27px 0;border-bottom:1px solid var(--line)}
+    .why-item-num{font-size:11px;color:var(--sage);font-weight:700;letter-spacing:.12em}
+    .why-item h3{font-family:var(--serif);font-size:27px;font-weight:500;margin:0 0 7px}
+    .why-item p{color:var(--muted);font-size:14px;max-width:600px;margin:0}
+
+    /* PROCESS */
+    .process{background:var(--ink);color:var(--paper)}
+    .process .eyebrow{color:#aab293}
+    .process-intro{color:#b9b9af}
+    .process-grid{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid #35352e;border-bottom:1px solid #35352e}
+    .process-step{padding:32px 24px 38px;border-right:1px solid #35352e;min-height:300px}
+    .process-step:last-child{border-right:0}
+    .process-num{font-size:11px;color:#929b78;font-weight:700;letter-spacing:.15em}
+    .process-step h3{font-family:var(--serif);font-size:34px;font-weight:500;margin:75px 0 14px}
+    .process-step p{color:#a9a9a0;font-size:14px;margin:0}
+
+    /* ABOUT */
+    .about-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:100px;align-items:center}
+    .about-mark{background:var(--sage-soft);border-radius:28px;min-height:430px;display:grid;place-items:center;position:relative;overflow:hidden}
+    .about-mark::before{content:"";position:absolute;width:330px;height:330px;border:1px solid rgba(17,17,15,.15);border-radius:50%}
+    .about-mark span{font-family:var(--serif);font-size:170px;position:relative}
+    .about-copy h2{font-family:var(--serif);font-size:clamp(42px,5vw,70px);line-height:.98;font-weight:500;letter-spacing:-.04em;margin:17px 0 24px}
+    .about-copy p{color:var(--muted);max-width:650px;margin:0 0 17px}
+    .founder-line{margin-top:28px;padding-top:22px;border-top:1px solid var(--line);font-size:13px}
+    .founder-line strong{display:block;font-family:var(--serif);font-size:22px;font-weight:500;margin-bottom:2px}
+
+    /* FAQ */
+    .faq{background:var(--paper-2)}
+    .faq-list{border-top:1px solid var(--line)}
+    .faq-item{border-bottom:1px solid var(--line)}
+    .faq-question{width:100%;display:flex;justify-content:space-between;align-items:center;gap:30px;text-align:left;border:0;background:transparent;padding:24px 0;color:var(--ink);font-family:var(--serif);font-size:24px}
+    .faq-plus{font-family:var(--sans);font-size:25px;font-weight:400;transition:transform .25s}
+    .faq-answer{max-height:0;overflow:hidden;transition:max-height .35s ease}
+    .faq-answer p{max-width:760px;color:var(--muted);font-size:14px;margin:0;padding:0 60px 25px 0}
+    .faq-item.open .faq-plus{transform:rotate(45deg)}
+
+    /* CONTACT */
+    .contact{background:var(--sage-soft)}
+    .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:85px;align-items:start}
+    .contact h2{font-family:var(--serif);font-size:clamp(50px,6vw,86px);line-height:.93;font-weight:500;letter-spacing:-.05em;margin:17px 0 25px}
+    .contact-copy{color:#5d6154;max-width:500px}
+    .email-link{display:inline-block;margin-top:30px;font-family:var(--serif);font-size:24px;border-bottom:1px solid var(--ink)}
+    .contact-form{background:var(--white);border:1px solid rgba(17,17,15,.12);border-radius:25px;padding:30px}
+    .field{margin-bottom:17px}
+    .field label{display:block;font-size:10px;text-transform:uppercase;letter-spacing:.15em;font-weight:700;margin-bottom:8px;color:#66675f}
+    .field input,.field textarea,.field select{width:100%;border:1px solid var(--line);background:var(--paper);color:var(--ink);border-radius:12px;padding:13px 14px;outline:none;transition:border-color .2s,box-shadow .2s}
+    .field textarea{min-height:130px;resize:vertical}
+    .field input:focus,.field textarea:focus,.field select:focus{border-color:var(--ink);box-shadow:0 0 0 3px rgba(17,17,15,.06)}
+    .form-note{font-size:11px;color:var(--muted);margin:12px 0 0}
+
+    /* FOOTER */
+    footer{background:var(--ink);color:var(--paper);padding:80px 0 28px}
+    .footer-cta{display:flex;justify-content:space-between;align-items:end;gap:40px;padding-bottom:65px;border-bottom:1px solid #34342e}
+    .footer-cta h2{font-family:var(--serif);font-size:clamp(48px,7vw,95px);line-height:.9;font-weight:500;letter-spacing:-.05em;margin:17px 0 0}
+    .footer-cta .eyebrow{color:#aab293}
+    .footer-links{display:flex;gap:15px;flex-wrap:wrap}
+    .footer-links a{color:#c3c3b9;border-bottom:1px solid #55554d;padding-bottom:3px;font-size:13px}
+    .footer-bottom{display:flex;justify-content:space-between;gap:30px;padding-top:25px;color:#7f7f76;font-size:11px}
+
+    /* REVEAL */
+    .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
+    .reveal.visible{opacity:1;transform:none}
+
+    /* RESPONSIVE */
+    @media(max-width:950px){
+      .hero-grid,.why-grid,.about-grid,.contact-grid{grid-template-columns:1fr;gap:55px}
+      .hero-art{min-height:450px}
+      .service-grid,.audience-grid{grid-template-columns:1fr}
+      .service{border-right:0;border-bottom:1px solid var(--line);min-height:auto}
+      .service:last-child{border-bottom:0}
+      .process-grid{grid-template-columns:1fr 1fr}
+      .process-step:nth-child(2){border-right:0}
+      .process-step:nth-child(1),.process-step:nth-child(2){border-bottom:1px solid #35352e}
+      .work-grid{grid-template-columns:1fr}
+      .manifesto-card{min-height:560px}
+      .footer-cta{display:block}
+      .footer-links{margin-top:35px}
+    }
+
+    @media(max-width:720px){
+      .container{width:min(var(--max),calc(100% - 34px))}
+      nav{height:70px}
+      .nav-links{display:none;position:fixed;inset:70px 0 0;background:var(--paper);flex-direction:column;align-items:flex-start;padding:30px 24px;gap:22px;font-size:18px}
+      .nav-links.open{display:flex}
+      .menu{display:block}
+      .nav-cta{padding:0;border:0}
+      .hero{padding:70px 0 65px}
+      .hero h1{font-size:61px}
+      .hero-copy{font-size:16px}
+      .hero-art{min-height:390px}
+      .hero-card{padding:30px}
+      .hero-card h2{font-size:32px}
+      .strip-inner{justify-content:center;flex-wrap:wrap;padding:17px 0;gap:12px 20px}
+      .strip-inner span:nth-child(even){display:none}
+      section{padding:82px 0}
+      .section-head,.manifesto-head{display:block}
+      .section-intro,.manifesto-copy{margin-top:22px}
+      .manifesto-card{min-height:480px;padding:24px;border-radius:22px}
+      .manifesto-letter{font-size:200px}
+      .manifesto-bottom p{font-size:25px}
+      .circle-btn{width:48px;height:48px}
+      .progress-line{width:45px}
+      .process-grid{grid-template-columns:1fr}
+      .process-step{border-right:0!important;border-bottom:1px solid #35352e!important;min-height:auto}
+      .process-step:last-child{border-bottom:0!important}
+      .process-step h3{margin-top:50px}
+      .about-mark{min-height:330px}
+      .about-mark span{font-size:125px}
+      .faq-question{font-size:20px}
+      .faq-answer p{padding-right:20px}
+      .contact-grid{gap:35px}
+      .contact-form{padding:22px}
+      .footer-bottom{display:block}
+      .footer-bottom span{display:block;margin-top:8px}
+    }
+
+    @media(prefers-reduced-motion:reduce){
+      html{scroll-behavior:auto}
+      *,*::before,*::after{transition:none!important;animation:none!important}
+      .reveal{opacity:1;transform:none}
+    }
+  
+    .poem-page{background:var(--paper);padding:80px 0 120px}
+    .poem-wrap{max-width:920px;margin:0 auto}
+    .poem-top{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;margin-bottom:65px}
+    .poem-number{font-size:10px;text-transform:uppercase;letter-spacing:.16em;font-weight:700;color:var(--sage);margin-bottom:16px}
+    .poem-title{font-family:var(--serif);font-size:clamp(52px,7vw,94px);line-height:.92;letter-spacing:-.05em;font-weight:500;margin:0}
+    .poem-category{font-size:11px;text-transform:uppercase;letter-spacing:.14em;font-weight:700;color:var(--muted);white-space:nowrap}
+    .poem-body{max-width:800px;margin:0 auto;font-family:var(--serif);font-size:clamp(19px,2vw,27px);line-height:1.75;color:#3e3d37}
+    .poem-body p{margin:0 0 1.12em}
+    .poem-body .signature{margin-top:50px;font-style:italic;color:var(--muted)}
+    .poem-back{display:inline-flex;margin-top:55px;font-size:12px;font-weight:700;border-bottom:1px solid var(--ink);padding-bottom:4px}
+    @media(max-width:720px){.poem-page{padding:55px 0 85px}.poem-top{display:block;margin-bottom:45px}.poem-category{margin-top:18px;white-space:normal}.poem-body{font-size:19px;line-height:1.7}}
+</style>
+</head>
+<body>
+<!-- NAVIGATION -->
+  <header class="nav-wrap">
+    <div class="container">
+      <nav>
+        <a href="#top" aria-label="MINHO home">
+          <img class="logo" src="minho-logo-transparent.png" alt="MINHO">
+        </a>
+
+        <div class="nav-links" id="navLinks">
+          <a href="#services">Services</a>
+          <a href="#work">Work</a>
+          <a href="#process">Process</a>
+          <a href="#about">About</a>
+          <a href="#faq">FAQ</a>
+          <a class="nav-cta" href="#contact">Start a project</a>
+        </div>
+
+        <button class="menu" id="menuButton" aria-label="Open menu" aria-expanded="false">☰</button>
+      </nav>
+    </div>
+  </header>
+<main>
+  <section class="poem-page">
+    <div class="container poem-wrap">
+      <div class="poem-top">
+        <div>
+          <div class="poem-number">Selected Work</div>
+          <h1 class="poem-title">Love in the<br>Digital Age</h1>
+        </div>
+        <div class="poem-category">Poetry · Personal Writing</div>
+      </div>
+      <div class="poem-body">
+        
+<p>Two souls, Long distances, far-off lands</p>
+<p>Love bridging the two estranged bands</p>
+<p>But sadly, it’s all built on the internet</p>
+<p>With various boundaries already preset</p>
+<p>Sometimes busyness, sometimes tiredness</p>
+<p>Sometimes, the loving weighing a little less</p>
+<p>Sometimes connectivity issues, souls or network</p>
+<p>Different opinions collide like that of a spoon and fork</p>
+<p>Sometimes the urge to meet stronger, sometimes weak</p>
+<p>And a strong, tight hug till the bodies squeak</p>
+<p>You fall in love and fall out of love sometimes, and that’s fine</p>
+<p>Because the longer love stays, it ages well like a good old wine</p>
+<p>You spend time looking at each other through the screen</p>
+<p>Imagining to grow old together when the grass stays green</p>
+<p>Dreaming of a fictional world with just the two of you in it</p>
+<p>And counting the minutes till you meet slowly, bit by bit</p>
+<p>The times seem to move slowly while you love someone online</p>
+<p>Planning your future all at once, sketching it as a dreamy outline</p>
+<p>Smiles flashed on the screen, virtual kisses blown to each other</p>
+<p>Making one smile on the blushing and shy cuteness of another</p>
+<p>Texting each other words of affirmation imagined as voices</p>
+<p>And exploring each other all over again as though novices</p>
+<p>A small tear shed that cant be wiped by the person virtually</p>
+<p>What starts as mere attraction becomes love, gradually</p>
+<p>Where love exists, all virtual barriers seem irrelevant</p>
+<p>For every topic with your partner, you are free to vent</p>
+<p>A partner who stays with you despite being far away</p>
+<p>As they always say, where there's a will, there is a way</p>
+<p>May love find its way back to you, hopefully, one day</p>
+<p>May life’s surprise be so big that you have nothing to say</p>
+<p>For my love in a far-off land, he continues to live</p>
+<p>And only memories are what we have to relive</p>
+<p>His presence, even in an unknown country or place</p>
+<p>It gives me peace somehow through my internet space</p>
+<p>Now I smile, closing the album of our years awaited love story</p>
+<p>Which now, for our coming generations, has become history</p>
+<p>Finally, we had made it to the end, no longer virtual but in real</p>
+<p>All the wounds and pains we suffered, now only time will heal</p>
+<p>For this is not the end but the beginning of something new</p>
+<p>Not all can make it up to here, only a selected handful few</p>
+<p>I miss the old us sometimes; God knows where they went</p>
+<p>Maybe just for our love story, they were handpicked and sent</p>
+<p>We had our fair share of love and arguments each time we met</p>
+<p>But we knew these arguments and life, together made us set</p>
+<p>Just like it worked out for us maybe it might work out for you</p>
+<p>The key being loyal for each other and to yourself always be true</p>
+<p>I bid adieu to you as I embark on my next journey as a poet</p>
+<p>Everyone’s love eventually works, I’m sure you’ll know it!</p>
+
+        <p class="signature">~ Shwetangi Srivastava</p>
+      </div>
+      <a class="poem-back" href="index.html#work">← Back to selected work</a>
+    </div>
+  </section>
+</main>
+<!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-cta">
+        <div>
+          <span class="eyebrow">MINHO Studio</span>
+          <h2>Let's make it<br>worth saying.</h2>
+        </div>
+        <div class="footer-links">
+          <a href="#contact">Start a project</a>
+          <a href="mailto:foundminhostudio@gmail.com">Email</a>
+          <a href="https://www.instagram.com/minho_studio/" target="_blank" rel="noopener">Instagram</a>
+          <a href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>MINHO — Creative Writing & Digital Content Studio</span>
+        <span>© 2026 MINHO Studio. All rights reserved.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const menuButton = document.getElementById('menuButton');
+    const navLinks = document.getElementById('navLinks');
+    menuButton.addEventListener('click', () => {
+      const open = navLinks.classList.toggle('open');
+      menuButton.setAttribute('aria-expanded', open ? 'true' : 'false');
+      menuButton.textContent = open ? '×' : '☰';
+      document.body.classList.toggle('menu-open', open);
+    });
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        menuButton.setAttribute('aria-expanded', 'false');
+        menuButton.textContent = '☰';
+        document.body.classList.remove('menu-open');
+      });
+    });
+  </script>
+
+</body>
+</html>

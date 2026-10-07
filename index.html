@@ -53,6 +53,43 @@
     .nav-cta:hover{background:var(--ink);color:var(--paper)!important}
     .menu{display:none;border:0;background:none;color:var(--ink);font-size:26px;padding:4px}
 
+    /* NEW CLIENT OFFER */
+    .offer-bar{
+      background:var(--ink);
+      color:var(--paper);
+      border-bottom:1px solid #2f2f2a;
+    }
+
+    .offer-inner{
+      min-height:52px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:14px;
+      text-align:center;
+      padding:9px 0;
+      font-size:10px;
+      font-weight:700;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+    }
+
+    .offer-mark{
+      color:var(--sage-soft);
+    }
+
+    .offer-inner a{
+      color:var(--paper);
+      border-bottom:1px solid rgba(247,245,239,.55);
+      padding-bottom:2px;
+      transition:color .2s ease,border-color .2s ease;
+    }
+
+    .offer-inner a:hover{
+      color:var(--sage-soft);
+      border-color:var(--sage-soft);
+    }
+
     /* HERO */
     .hero{padding:100px 0 90px;overflow:hidden}
     .hero-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:80px;align-items:center}
@@ -120,6 +157,29 @@
     .service h3{font-family:var(--serif);font-size:38px;font-weight:500;line-height:1;margin:70px 0 18px;letter-spacing:-.03em}
     .service p{font-size:14px;color:var(--muted);max-width:330px;margin:0}
     .service-link{display:inline-flex;margin-top:25px;font-size:12px;font-weight:700}
+
+    /* PACKAGES */
+    .packages-section{background:var(--paper)}
+    .pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .pricing-card{background:var(--white);border:1px solid var(--line);border-radius:26px;padding:32px;min-height:390px;display:flex;flex-direction:column;transition:transform .25s,box-shadow .25s,border-color .25s}
+    .pricing-card:hover{transform:translateY(-5px);box-shadow:0 20px 45px rgba(17,17,15,.08)}
+    .pricing-card.featured{background:var(--ink);color:var(--paper);border-color:var(--ink);position:relative}
+    .pricing-badge{display:inline-flex;align-self:flex-start;background:var(--sage-soft);color:var(--ink);border-radius:999px;padding:8px 12px;font-size:9px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;margin-bottom:18px}
+    .pricing-num{font-size:10px;text-transform:uppercase;letter-spacing:.15em;color:var(--sage);font-weight:700}
+    .pricing-card h3{font-family:var(--serif);font-size:38px;font-weight:500;line-height:1;margin:24px 0 10px}
+    .pricing-price{font-family:var(--serif);font-size:42px;line-height:1;margin:0}
+    .pricing-price small{font-family:var(--sans);font-size:11px;color:var(--muted);font-weight:500}
+    .pricing-card.featured .pricing-price small{color:#aaa9a0}
+    .pricing-desc{color:var(--muted);font-size:14px;line-height:1.55;margin:18px 0 0;max-width:360px}
+    .pricing-card.featured .pricing-desc{color:#b9b9af}
+    .pricing-features{margin:22px 0 0;padding:0;list-style:none;border-top:1px solid var(--line)}
+    .pricing-card.featured .pricing-features{border-top-color:#35352e}
+    .pricing-features li{padding:10px 0;border-bottom:1px solid var(--line);font-size:12px;color:#4b4a44}
+    .pricing-card.featured .pricing-features li{border-bottom-color:#35352e;color:#c7c7bd}
+    .pricing-cta{margin-top:auto;padding-top:24px}
+    .pricing-note{margin-top:30px;color:var(--muted);font-size:12px;text-align:center}
+    .pricing-note strong{color:var(--ink)}
+    @media(max-width:950px){.pricing-grid{grid-template-columns:1fr}}
 
     /* AUDIENCE */
     .audience-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
@@ -232,6 +292,14 @@
       .nav-links.open{display:flex}
       .menu{display:block}
       .nav-cta{padding:0;border:0}
+      .offer-inner{
+        min-height:64px;
+        flex-wrap:wrap;
+        gap:7px 12px;
+        padding:10px 0;
+        font-size:9px;
+      }
+
       .hero{padding:70px 0 65px}
       .hero h1{font-size:61px}
       .hero-copy{font-size:16px}
@@ -282,6 +350,7 @@
 
         <div class="nav-links" id="navLinks">
           <a href="#services">Services</a>
+          <a href="#packages">Packages</a>
           <a href="#work">Work</a>
           <a href="#process">Process</a>
           <a href="#about">About</a>
@@ -293,6 +362,14 @@
       </nav>
     </div>
   </header>
+
+  <div class="offer-bar" aria-label="New client offer">
+    <div class="container offer-inner">
+      <span class="offer-mark">✦</span>
+      <span>New client offer — 50% off your first project, up to ₹2,500</span>
+      <a href="payment.html">Claim the offer →</a>
+    </div>
+  </div>
 
   <main id="top">
 
@@ -416,6 +493,69 @@
             <a class="service-link" href="#contact">Refine my work →</a>
           </article>
         </div>
+      </div>
+    </section>
+
+    <!-- PACKAGES -->
+    <section class="packages-section" id="packages">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <span class="eyebrow">MINHO packages</span>
+            <h2 class="section-title">Choose the level<br>that fits your idea.</h2>
+          </div>
+          <p class="section-intro">Simple starting packages for individuals, creators and small brands. Every project can still be tailored to what you actually need.</p>
+        </div>
+
+        <div class="pricing-grid">
+          <article class="pricing-card reveal">
+            <span class="pricing-num">01 — BASIC</span>
+            <h3>Basic</h3>
+            <p class="pricing-price">₹1,499 <small>starting price</small></p>
+            <p class="pricing-desc">A focused writing or editing project for individuals who need a strong piece without a large content scope.</p>
+            <ul class="pricing-features">
+              <li>One focused creative or editing project</li>
+              <li>One refinement round</li>
+              <li>Final polished copy</li>
+            </ul>
+            <div class="pricing-cta">
+              <a class="btn btn-light" href="payment.html">Choose Basic →</a>
+            </div>
+          </article>
+
+          <article class="pricing-card featured reveal">
+            <span class="pricing-badge">Most popular</span>
+            <span class="pricing-num">02 — BUSINESS</span>
+            <h3>Business</h3>
+            <p class="pricing-price">₹3,499 <small>starting price</small></p>
+            <p class="pricing-desc">A polished content package for creators, personal brands and small businesses that need several pieces working together.</p>
+            <ul class="pricing-features">
+              <li>Multi-piece content package</li>
+              <li>Voice and messaging alignment</li>
+              <li>Two refinement rounds</li>
+            </ul>
+            <div class="pricing-cta">
+              <a class="btn btn-light" href="payment.html">Choose Business →</a>
+            </div>
+          </article>
+
+          <article class="pricing-card reveal">
+            <span class="pricing-num">03 — PREMIUM</span>
+            <h3>Premium</h3>
+            <p class="pricing-price">₹6,999 <small>starting price</small></p>
+            <p class="pricing-desc">A larger, end-to-end writing and content package for projects that need deeper strategy, storytelling and refinement.</p>
+            <ul class="pricing-features">
+              <li>End-to-end content support</li>
+              <li>Deeper editing and refinement</li>
+              <li>Priority creative direction</li>
+            </ul>
+            <div class="pricing-cta">
+              <a class="btn btn-light" href="payment.html">Choose Premium →</a>
+            </div>
+          </article>
+        </div>
+
+        <p class="pricing-note reveal"><strong>New clients:</strong> get 50% off your first project, up to ₹2,500. See the payment page for the current launch offer.</p>
       </div>
     </section>
 

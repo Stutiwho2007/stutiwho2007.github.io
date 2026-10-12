@@ -1,3 +1,0 @@
-User-agent: *
-Allow: /
-Sitemap: https://stutiwho2007.github.io/sitemap.xml

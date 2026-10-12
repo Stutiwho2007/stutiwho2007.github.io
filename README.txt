@@ -1,0 +1,1 @@
+MINHO V9 website with transparent botanical-green logo. Upload index.html and minho-logo-transparent.png to the root of your GitHub Pages repository, replacing the old files.

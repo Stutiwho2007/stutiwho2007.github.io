@@ -1,55 +1,459 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#f7f2e8">
-<meta name="description" content="MINHO is a creative writing and editing studio. Poetry, storytelling, editing and thoughtful brand content.">
-<title>MINHO Studio — Where words take flight</title>
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css"><script src="script.js" defer></script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MINHO — Creative Writing & Digital Content Studio</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&display=swap');
+:root{color-scheme:light dark;--bg:light-dark(#f1f3e7,#151711);--surface:light-dark(#fbfcf7,#22251d);--surface2:light-dark(#e5e9d9,#2c3026);--text:light-dark(#293020,#f4f6ec);--muted:light-dark(#6f7764,#b9c0ae);--line:light-dark(#d5dac7,#41463a);--accent:light-dark(#78855a,#c8d39f)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font-family:Georgia,'Times New Roman',serif}button,a{font:inherit}.root{min-height:100vh;background:var(--bg)}
+nav{max-width:1120px;margin:auto;padding:24px 28px;display:flex;align-items:center;justify-content:space-between}nav .brand{font-family:Arial,sans-serif;font-weight:800;letter-spacing:.18em;font-size:18px}nav .links{display:flex;gap:20px;font-family:Arial,sans-serif;font-size:13px}nav a{color:var(--text);text-decoration:none;transition:opacity .2s}nav a:hover{opacity:.6}
+.hero{max-width:1120px;margin:auto;padding:92px 28px 100px;display:grid;grid-template-columns:1.15fr .85fr;gap:70px;align-items:center}.eyebrow{font-family:Arial,sans-serif;text-transform:uppercase;letter-spacing:.18em;font-size:12px;color:var(--accent);margin-bottom:22px}.hero h1{font-size:clamp(54px,8vw,104px);line-height:.88;margin:0 0 26px;font-weight:500;letter-spacing:-.055em}.hero h1 em{font-style:italic}.hero p{font-size:20px;line-height:1.55;color:var(--muted);max-width:650px;margin:0 0 30px}.cta{display:inline-flex;align-items:center;gap:10px;background:var(--text);color:var(--bg);padding:14px 20px;border-radius:999px;text-decoration:none;font-family:Arial,sans-serif;font-weight:700;font-size:13px}.hero-card{border:1px solid var(--line);background:var(--surface);padding:42px;border-radius:28px;transform:rotate(1.2deg)}.hero-card .quote{font-size:31px;line-height:1.15;margin:0 0 28px}.hero-card small{font-family:Arial,sans-serif;color:var(--muted);text-transform:uppercase;letter-spacing:.12em}
+section{max-width:1120px;margin:auto;padding:76px 28px}.section-head{display:flex;justify-content:space-between;align-items:end;gap:30px;border-bottom:1px solid var(--line);padding-bottom:18px;margin-bottom:30px}.section-head h2{font-size:42px;font-weight:500;margin:0;letter-spacing:-.03em}.section-head p{font-family:Arial,sans-serif;font-size:13px;color:var(--muted);max-width:430px;line-height:1.5;margin:0}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.card{background:var(--surface);border:1px solid var(--line);border-radius:22px;padding:28px;min-height:220px}.num{font-family:Arial,sans-serif;font-size:12px;color:var(--accent);margin-bottom:38px}.card h3{font-size:25px;font-weight:500;margin:0 0 10px}.card p{font-family:Arial,sans-serif;color:var(--muted);line-height:1.55;font-size:14px;margin:0}
+.work{display:grid;grid-template-columns:1fr 1fr;gap:16px}.work-card{border-radius:24px;background:var(--surface2);padding:34px;min-height:280px;display:flex;flex-direction:column;justify-content:space-between}.work-card h3{font-size:34px;font-weight:500;margin:0;max-width:400px}.tag{font-family:Arial,sans-serif;font-size:11px;text-transform:uppercase;letter-spacing:.13em;color:var(--muted)}
+.service-detail{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:18px}.service-detail article{padding:22px 24px;border-left:1px solid var(--line)}.service-detail h4{font-size:18px;font-weight:500;margin:0 0 10px}.service-detail p{font-family:Arial,sans-serif;color:var(--muted);font-size:13px;line-height:1.55;margin:0}.process{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}.process .card{min-height:190px}.process .num{margin-bottom:28px}.note{font-family:Arial,sans-serif;font-size:13px;color:var(--muted);line-height:1.6;margin-top:22px}.socials{display:flex;gap:18px;flex-wrap:wrap;font-family:Arial,sans-serif;font-size:13px}.socials a{color:var(--text);text-decoration:none}.socials a:hover{opacity:.6}
+.about{display:grid;grid-template-columns:.8fr 1.2fr;gap:70px;align-items:start}.about h2{font-size:48px;font-weight:500;line-height:1;margin:0}.about p{font-size:19px;line-height:1.7;color:var(--muted);margin:0 0 18px}.contact{background:var(--text);color:var(--bg);border-radius:30px;padding:64px;display:flex;justify-content:space-between;gap:40px;align-items:center}.contact h2{font-size:52px;font-weight:500;margin:0;letter-spacing:-.04em}.contact p{font-family:Arial,sans-serif;color:var(--muted);max-width:520px;line-height:1.5}.contact .cta{background:var(--bg);color:var(--text)}footer{max-width:1120px;margin:auto;padding:40px 28px 60px;display:flex;justify-content:space-between;font-family:Arial,sans-serif;font-size:12px;color:var(--muted)}
+@media(max-width:800px){nav .links{display:none}.hero,.about{grid-template-columns:1fr;gap:38px;padding-top:55px}.grid,.work,.service-detail,.process{grid-template-columns:1fr}.hero-card{transform:none}.contact{padding:40px 28px;display:block}.contact h2{font-size:42px;margin-bottom:15px}.section-head{display:block}.section-head h2{margin-bottom:12px}.service-detail article{border-left:0;border-top:1px solid var(--line)}section{padding:55px 22px}.hero{padding-left:22px;padding-right:22px}nav{padding:20px 22px}}
+
+nav .brand{display:inline-flex;align-items:center;text-decoration:none}nav .brand img{display:block;width:88px;height:auto;max-height:54px;object-fit:contain;object-position:left center}.contact-details{margin:22px 0 14px}.contact-details .email{font-family:Arial,sans-serif;color:var(--bg);text-decoration:none;font-size:14px;font-weight:700}.contact-details .email:hover{opacity:.7}.footer-brand{display:flex;align-items:center;gap:16px}.footer-brand img{width:68px;height:auto;max-height:42px;object-fit:contain;background:#293b30;padding:4px 6px}.footer-brand span{font-family:Arial,sans-serif;font-size:12px;color:var(--muted)}
+
+/* MINHO V6 professional refinements */
+:root{color-scheme:light;--bg:#f4f5ec;--surface:#fffef9;--surface2:#e7ecdd;--text:#293326;--muted:#687260;--line:#d8dece;--accent:#718052}
+body{font-family:Georgia,'Times New Roman',serif;letter-spacing:.005em}nav{position:sticky;top:0;z-index:20;max-width:none;padding:16px max(28px,calc((100vw - 1120px)/2));background:rgba(244,245,236,.94);backdrop-filter:blur(14px);border-bottom:1px solid rgba(216,222,206,.8)}nav .brand img{width:92px;height:54px;object-fit:contain;object-position:left center}nav .links{align-items:center;gap:clamp(12px,2vw,25px)}nav .links a{font-size:12px;letter-spacing:.04em}.hero{padding-top:105px;padding-bottom:110px}.hero h1{line-height:.98;max-width:760px}.cta{display:inline-flex;align-items:center;gap:14px;border-radius:999px;padding:15px 23px;background:var(--text);color:var(--bg);text-decoration:none;font:600 12px Arial,sans-serif;letter-spacing:.04em;transition:transform .2s,background .2s}.cta:hover{transform:translateY(-2px);background:#46543b}.card,.work-card{box-shadow:0 8px 30px rgba(40,50,34,.035);border:1px solid rgba(216,222,206,.8);transition:transform .22s,box-shadow .22s}.card:hover,.work-card:hover{transform:translateY(-4px);box-shadow:0 16px 36px rgba(40,50,34,.08)}section{scroll-margin-top:86px}.work-card{cursor:pointer;text-align:left}.work-card .read-link{font:600 11px Arial,sans-serif;letter-spacing:.1em;text-transform:uppercase;color:var(--accent)}
+.founder-layout{display:grid;grid-template-columns:minmax(220px,.72fr) 1.28fr;gap:clamp(30px,6vw,76px);align-items:center}.founder-photo-wrap{min-height:340px;border-radius:26px;overflow:hidden;background:linear-gradient(145deg,#e5ead9,#fdfbf4);border:1px solid var(--line);display:flex;align-items:center;justify-content:center}.founder-photo-wrap img{width:100%;height:100%;min-height:340px;max-height:480px;object-fit:cover;display:block}.founder-placeholder{padding:24px;text-align:center;font:12px/1.7 Arial,sans-serif;color:var(--muted)}.founder-placeholder strong{display:block;font:italic 28px Georgia,serif;color:var(--text);margin-bottom:8px}
+.poem-dialog{width:min(720px,calc(100% - 28px));max-height:85vh;overflow:auto;border:1px solid var(--line);border-radius:24px;background:var(--surface);color:var(--text);padding:clamp(24px,5vw,48px);box-shadow:0 24px 90px rgba(20,30,16,.28)}.poem-dialog::backdrop{background:rgba(24,31,22,.66);backdrop-filter:blur(5px)}.poem-dialog h2{font-size:clamp(30px,5vw,48px);font-weight:500;line-height:1.05;margin:12px 0}.poem-dialog .poem-meta{font:11px Arial,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}.poem-dialog .poem-body{white-space:pre-line;font-size:18px;line-height:1.9;color:var(--muted);margin-top:28px}.dialog-top{display:flex;justify-content:space-between;gap:18px;align-items:center}.dialog-close{border:1px solid var(--line);background:var(--surface2);color:var(--text);width:42px;height:42px;border-radius:50%;cursor:pointer;font-size:22px}.work-card:focus-visible,.cta:focus-visible,.dialog-close:focus-visible{outline:3px solid var(--accent);outline-offset:4px}
+@media(max-width:800px){nav{padding:14px 20px;position:relative}nav .brand img{width:78px}nav .links{display:flex;flex-wrap:wrap;justify-content:flex-end;gap:10px 14px;font-size:11px}.hero{padding-top:60px;padding-bottom:65px}.founder-layout{grid-template-columns:1fr}.founder-photo-wrap,.founder-photo-wrap img{min-height:280px}.poem-dialog .poem-body{font-size:16px}}
+@media(max-width:480px){nav{align-items:flex-start;gap:12px}nav .links{max-width:230px}nav .links a{font-size:10px}.hero h1{font-size:clamp(48px,14vw,68px)}}
+
+
+/* Packages and responsive layout improvements */
+.pricing-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;align-items:stretch}
+.price-card{display:flex;flex-direction:column;min-width:0;padding:clamp(22px,2.8vw,34px);border:1px solid var(--line);border-radius:24px;background:var(--surface);box-shadow:0 10px 34px rgba(40,50,34,.045)}
+.price-card.featured{background:var(--surface2);border-color:#aeb99a;transform:translateY(-8px)}
+.price-card h3{font-size:clamp(28px,3vw,36px);font-weight:500;margin:22px 0 8px}
+.price{font-size:clamp(32px,3.5vw,44px);letter-spacing:-.04em;margin:0 0 8px}
+.price-desc{font:14px/1.65 Arial,sans-serif;color:var(--muted);min-height:48px;margin:0 0 18px}
+.price-card ul{list-style:none;padding:18px 0 24px;margin:0 0 20px;border-top:1px solid var(--line);flex:1}
+.price-card li{position:relative;padding:0 0 12px 22px;font:13px/1.55 Arial,sans-serif;color:var(--muted)}
+.price-card li:before{content:"✓";position:absolute;left:0;color:var(--accent);font-weight:bold}
+.price-cta{justify-content:center;text-align:center;align-self:flex-start}
+@media(max-width:900px){.pricing-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.price-card.featured{transform:none}}
+@media(max-width:620px){.pricing-grid{grid-template-columns:1fr}.price-desc{min-height:0}.price-cta{align-self:stretch}.section-head h2{font-size:clamp(32px,9vw,42px)}section{padding:48px 18px}.hero{padding-left:18px;padding-right:18px}.work-card{min-height:230px}.contact{padding:32px 22px}footer{padding:32px 20px;gap:20px;flex-wrap:wrap}}
+
+
+/* MINHO V8 — light sage & creamy ivory, editorial typography */
+:root{
+  --bg:#f7f6ee;
+  --surface:#fffdf7;
+  --surface2:#e5ebdf;
+  --text:#293b30;
+  --muted:#68776b;
+  --line:#d5dfd2;
+  --accent:#78917a;
+  --forest:#dce7d8;
+  --paper:#293b30;
+}
+body{background:var(--bg);color:var(--text);font-family:'Cormorant Garamond',Georgia,serif;font-size:17px;letter-spacing:.005em}
+/* Elegant serif headlines with a clean, legible sans-serif for navigation and details */
+body{font-family:'DM Sans',Arial,sans-serif}
+h1,h2,h3,h4,.hero-card .quote,.about h2,.price-card h3,.contact h2,.poem-dialog h2{font-family:'Playfair Display',Georgia,serif}
+
+body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;background:radial-gradient(ellipse at 85% 4%,rgba(154,118,84,.075),transparent 32%),radial-gradient(ellipse at 3% 42%,rgba(112,128,82,.055),transparent 28%)}
+nav{background:rgba(247,246,238,.94);border-bottom:1px solid rgba(217,212,199,.88);padding-top:18px;padding-bottom:18px}
+nav .brand{background:#293b30;padding:5px 9px}nav .brand img{width:98px;max-height:58px}
+nav .links a{font-size:10px;letter-spacing:.14em;text-transform:uppercase}
+nav .links a:last-child{border:1px solid var(--line);padding:11px 15px;border-radius:2px}
+.hero{position:relative;min-height:590px;padding-top:116px;padding-bottom:118px;grid-template-columns:1.12fr .88fr;gap:clamp(36px,7vw,100px)}
+.hero:before{content:"INDEPENDENT CREATIVE STUDIO";position:absolute;top:42px;left:28px;font:10px Arial,sans-serif;letter-spacing:.2em;color:var(--muted)}
+.eyebrow{color:var(--accent);font-size:10px;letter-spacing:.22em}
+.hero h1{font-size:clamp(62px,8.2vw,112px);line-height:.91;letter-spacing:-.065em;font-weight:400}
+.hero h1 em{color:var(--accent);font-weight:400}
+.hero p{font-size:18px;max-width:510px;line-height:1.75;color:#6f7469}
+.cta{border-radius:2px;background:var(--forest);color:var(--paper);padding:17px 22px;letter-spacing:.13em;text-transform:uppercase;font-size:10px}
+.cta:hover{background:#354b3d}
+.hero-card{position:relative;border:0;border-radius:0;background:#dfe9dc;color:var(--text);padding:clamp(30px,4.3vw,54px);min-height:330px;display:flex;flex-direction:column;justify-content:center;transform:rotate(0);box-shadow:18px 18px 0 #e8e7dc}
+.hero-card:before{content:"“";font-size:100px;line-height:.7;color:#78917a;display:block;margin-bottom:24px}
+.hero-card .quote{font-size:clamp(28px,3.4vw,42px);line-height:1.17;letter-spacing:-.035em;font-weight:400}
+.hero-card small{font-size:9px;letter-spacing:.2em;color:#657968}
+section{padding-top:94px;padding-bottom:94px}
+.section-head{border-bottom:1px solid var(--line);padding-bottom:24px;margin-bottom:36px}
+.section-head h2{font-size:clamp(35px,4.2vw,52px);line-height:1.03;letter-spacing:-.045em}
+.section-head p{font-size:12px;line-height:1.8;max-width:360px}
+.grid{gap:0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.card{background:transparent;border:0;border-radius:0;box-shadow:none!important;padding:30px 28px 32px;min-height:230px}
+.grid .card+.card{border-left:1px solid var(--line)}
+.card:hover,.work-card:hover{transform:translateY(-3px);box-shadow:none}
+.num{font-size:10px;letter-spacing:.16em;color:var(--accent);margin-bottom:48px}
+.card h3{font-size:28px;letter-spacing:-.03em}
+.card p,.service-detail p{font-size:12px;line-height:1.85}
+.service-detail{gap:0;margin-top:26px}
+.service-detail article{padding:24px 28px;border-left:1px solid var(--line)}
+.service-detail h4{font-size:20px;font-style:italic}
+.work{gap:18px}
+.work-card{position:relative;border-radius:0;background:#e5ebdf;padding:clamp(26px,4vw,46px);min-height:340px;border:1px solid #dedbce;box-shadow:none;text-align:left}
+.work-card:nth-child(2){background:#dce6d8}
+.work-card h3{font-size:clamp(31px,4vw,46px);line-height:1.08;letter-spacing:-.04em;max-width:360px}
+.work-card .read-link{color:var(--forest);border-bottom:1px solid #a5aa98;padding-bottom:8px;width:max-content}
+.tag{font-size:9px;letter-spacing:.18em}
+.process{gap:0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.process .card{min-height:205px;padding:26px 22px}
+.process .card+.card{border-left:1px solid var(--line)}
+.process .num{margin-bottom:36px}
+.founder-photo-wrap{border-radius:0;background:#e5ebdf;border:0;min-height:410px}
+.founder-photo-wrap img{min-height:410px;filter:saturate(.82)}
+.about{gap:clamp(38px,8vw,110px)}
+.about h2{font-size:clamp(40px,5vw,60px);letter-spacing:-.045em}
+.about p{font-size:17px;line-height:1.85}
+#about{border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.pricing-grid{gap:14px}
+.price-card{background:transparent;border:1px solid var(--line);border-radius:0;padding:clamp(24px,3vw,36px);box-shadow:none;transition:background .2s,border-color .2s,transform .2s}
+.price-card:hover{background:#fffdf7;border-color:#a9c0a9;transform:translateY(-4px)}
+.price-card.featured{background:#e1eadd;color:var(--text);border-color:#cbd9c8;box-shadow:8px 8px 0 #e9e8dc}
+.price-card.featured .tag,.price-card.featured .price-desc,.price-card.featured li{color:#5e7162}
+.price-card h3{font-size:34px;letter-spacing:-.04em}
+.price-card .price{font-size:44px;letter-spacing:-.05em}
+.price-card ul{font-size:12px;line-height:1.9}
+.price-card .cta{margin-top:24px}
+.price-card.featured .cta{background:#293b30;color:#f7f6ee}
+.note{font-size:11px;line-height:1.8}
+.contact{background:#dfe9dc;color:var(--text);border-radius:0;padding:clamp(34px,6vw,76px);position:relative;overflow:hidden}
+.contact:after{content:"MINHO";position:absolute;right:-10px;bottom:-52px;font:bold clamp(90px,17vw,210px)/1 Arial,sans-serif;letter-spacing:-.1em;color:rgba(41,59,48,.055);pointer-events:none}
+.contact h2{font-size:clamp(42px,6vw,72px);line-height:.98;letter-spacing:-.06em}
+.contact p{font-size:12px;line-height:1.9;color:#5e7162}
+.contact .email{color:var(--paper);font-weight:400;letter-spacing:.03em}
+.contact .cta{position:relative;z-index:1;white-space:nowrap;background:#293b30;color:#f7f6ee}
+.socials a{font-size:10px;letter-spacing:.12em;text-transform:uppercase}
+footer{border-top:1px solid var(--line);font-size:10px;letter-spacing:.06em}
+.poem-dialog{border-radius:0;border-color:var(--line);box-shadow:0 24px 100px rgba(22,34,26,.32)}
+.dialog-close{border-radius:0}
+@media(max-width:800px){
+ nav{padding:14px 20px;gap:14px}nav .brand img{width:78px}
+ nav .links{gap:9px 12px;max-width:72%}nav .links a{font-size:9px;letter-spacing:.08em}
+ .hero{min-height:auto;padding-top:88px;padding-bottom:70px;gap:36px}
+ .hero:before{left:22px;top:28px;font-size:8px}
+ .hero-card{min-height:260px;box-shadow:9px 9px 0 #e8e7dc}
+ section{padding-top:66px;padding-bottom:66px}
+ .grid{grid-template-columns:1fr}
+ .grid .card+.card,.process .card+.card{border-left:0;border-top:1px solid var(--line)}
+ .card{min-height:0;padding:26px 8px}
+ .card .num{margin-bottom:24px}
+ .service-detail{grid-template-columns:1fr}
+ .service-detail article{padding:20px 8px;border-left:0;border-top:1px solid var(--line)}
+ .process{grid-template-columns:1fr}
+ .process .card{padding:25px 8px}
+ .work-card{min-height:280px}
+ .founder-photo-wrap,.founder-photo-wrap img{min-height:300px}
+ .contact{padding:36px 26px}.contact .cta{white-space:normal;margin-top:18px}
+}
+@media(max-width:480px){
+ nav{align-items:center}nav .links{max-width:75%;gap:8px 10px}nav .links a{font-size:8px}
+ .hero h1{font-size:clamp(55px,15vw,72px)}
+ .hero p{font-size:16px}
+ .section-head h2{font-size:36px}
+ .price-card.featured{box-shadow:5px 5px 0 #e1d9cb}
+ footer{gap:14px;align-items:flex-start}
+}
+
+
+/* MINHO V9 — quiet luxury meets literary art house */
+:root{
+ color-scheme:light;
+ --bg:#F8F6EF;
+ --surface:#FFFEFA;
+ --surface2:#E5EDE1;
+ --text:#26382D;
+ --muted:#69776A;
+ --line:#D6E0D2;
+ --accent:#829A80;
+ --sage:#DDE8D9;
+ --sage-deep:#45624C;
+ --paper:#F2EEE3;
+}
+html{background:var(--bg);scroll-padding-top:100px}
+body{background:var(--bg);color:var(--text);font-family:'Manrope',sans-serif;letter-spacing:0;font-size:15px}
+.root{background:var(--bg)}
+nav{max-width:none;padding:16px max(28px,calc((100vw - 1240px)/2));background:rgba(248,246,239,.94);border-bottom:1px solid var(--line);backdrop-filter:blur(16px)}
+nav .brand img{width:98px;max-height:56px}
+nav .links{font-family:'Manrope',sans-serif;gap:clamp(13px,2vw,28px)}
+nav .links a{font-size:11px;text-transform:uppercase;letter-spacing:.12em;color:var(--text)}
+nav .links a:hover{color:var(--sage-deep);opacity:1}
+section{max-width:1240px;padding:94px clamp(24px,5vw,66px);scroll-margin-top:82px}
+.hero{max-width:1240px;min-height:650px;padding:clamp(70px,9vw,125px) clamp(24px,5vw,66px) 110px;grid-template-columns:minmax(0,1.12fr) minmax(280px,.88fr);gap:clamp(34px,7vw,100px);position:relative}
+.hero:before{content:"";position:absolute;left:clamp(24px,5vw,66px);top:42px;width:52px;height:1px;background:var(--accent)}
+.eyebrow{font-family:'Manrope',sans-serif;color:var(--sage-deep);font-size:10px;letter-spacing:.19em;line-height:1.7;font-weight:700;text-transform:uppercase}
+.hero .eyebrow{margin-bottom:25px}
+.hero h1,.section-head h2,.about h2,.contact h2,.work-card h3,.card h3,.price-card h3,.poem-dialog h2{
+ font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;letter-spacing:-.035em
+}
+.hero h1{font-size:clamp(76px,10vw,138px);line-height:.79;max-width:700px;margin:0 0 34px;letter-spacing:-.055em}
+.hero h1 em{font-weight:400;color:var(--sage-deep)}
+.hero p{font-family:'Manrope',sans-serif;font-size:16px;line-height:1.85;max-width:440px;color:var(--muted);margin-bottom:32px}
+.cta{border-radius:2px;background:var(--sage-deep);color:#FBFAF4;padding:16px 21px;font:600 10px 'Manrope',sans-serif;letter-spacing:.15em;text-transform:uppercase;transition:background .2s,transform .2s}
+.cta:hover{background:var(--text);transform:translateY(-2px)}
+.hero-card{position:relative;border:0;border-radius:0;background:var(--sage);padding:clamp(34px,4vw,58px);min-height:380px;display:flex;flex-direction:column;justify-content:center;transform:rotate(1.4deg);box-shadow:14px 14px 0 var(--paper)}
+.hero-card:before{content:"“";font:italic 100px/1 'Cormorant Garamond',serif;color:var(--sage-deep);opacity:.45;position:absolute;top:10px;left:24px}
+.hero-card:after{content:"A NOTE ON WORDS";position:absolute;right:22px;bottom:18px;font:700 9px 'Manrope',sans-serif;letter-spacing:.17em;color:var(--sage-deep)}
+.hero-card .quote{font:italic 500 clamp(32px,4vw,48px)/1.08 'Cormorant Garamond',serif;margin:20px 0 32px;max-width:420px}
+.hero-card small{font:700 9px 'Manrope',sans-serif;color:var(--sage-deep);letter-spacing:.17em}
+.section-head{border-bottom:1px solid var(--line);padding-bottom:24px;margin-bottom:38px;align-items:end}
+.section-head h2{font-size:clamp(42px,5vw,68px);line-height:.95;margin:0}
+.section-head p{font:13px/1.8 'Manrope',sans-serif;color:var(--muted);max-width:380px}
+.grid{gap:0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.card{border:0;border-right:1px solid var(--line);border-radius:0;box-shadow:none;background:transparent;padding:30px 28px 34px;min-height:230px}
+.grid .card:first-child{padding-left:0}
+.grid .card:last-child{border-right:0}
+.card:hover{transform:none;box-shadow:none;background:rgba(221,232,217,.26)}
+.num{font:700 10px 'Manrope',sans-serif;color:var(--sage-deep);letter-spacing:.12em;margin-bottom:42px}
+.card h3{font-size:clamp(29px,3vw,38px);line-height:1.05;margin-bottom:12px}
+.card p,.service-detail p,.process .card p{font:12px/1.9 'Manrope',sans-serif;color:var(--muted)}
+.service-detail{gap:0;margin-top:32px}
+.service-detail article{padding:20px 26px;border-left:1px solid var(--line)}
+.service-detail article:first-child{padding-left:0;border-left:0}
+.service-detail h4{font:500 24px 'Cormorant Garamond',serif;color:var(--text);margin-bottom:8px}
+.note{font:12px/1.8 'Manrope',sans-serif;color:var(--muted)}
+#why-minho{background:var(--paper);max-width:none;padding-left:max(24px,calc((100vw - 1108px)/2));padding-right:max(24px,calc((100vw - 1108px)/2))}
+#why-minho .grid{border-color:#DCD7C9}
+#why-minho .card:hover{background:rgba(255,254,250,.4)}
+.work{gap:20px}
+.work-card{position:relative;overflow:hidden;border-radius:0;border:1px solid var(--line);background:var(--surface);min-height:350px;padding:clamp(28px,4vw,48px);box-shadow:none;transition:background .3s,border-color .3s}
+.work-card:before{content:"";position:absolute;right:-38px;top:-48px;width:170px;height:220px;border:1px solid var(--line);border-radius:100%;transform:rotate(28deg);pointer-events:none}
+.work-card:after{content:"";position:absolute;right:12px;top:12px;width:95px;height:125px;border:1px solid rgba(130,154,128,.35);border-radius:100%;transform:rotate(28deg);pointer-events:none}
+.work-card:hover{background:var(--sage);border-color:var(--sage-deep);transform:none;box-shadow:none}
+.work-card h3{font-size:clamp(39px,5vw,63px);line-height:.98;max-width:430px;margin:45px 0 26px}
+.work-card .tag{font:700 9px 'Manrope',sans-serif;letter-spacing:.15em;color:var(--sage-deep)}
+.work-card .read-link{font:700 9px 'Manrope',sans-serif;letter-spacing:.16em;color:var(--sage-deep)}
+#process .process{gap:0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+#process .card{min-height:185px}
+#process .card h3{font-size:30px}
+.founder-layout{grid-template-columns:minmax(220px,.82fr) 1.18fr;gap:clamp(34px,7vw,90px)}
+.founder-photo-wrap{border-radius:0;min-height:420px;background:var(--sage);border:0;position:relative}
+.founder-photo-wrap:after{content:"MINHO / FOUNDER";position:absolute;bottom:15px;left:16px;font:700 9px 'Manrope',sans-serif;letter-spacing:.15em;color:var(--sage-deep)}
+.founder-photo-wrap img{min-height:420px;filter:saturate(.82)}
+.founder-placeholder{font:11px/1.8 'Manrope',sans-serif}
+.founder-placeholder strong{font:italic 36px 'Cormorant Garamond',serif}
+.about h2{font-size:clamp(48px,6vw,76px);line-height:.88}
+.about p{font:15px/1.95 'Manrope',sans-serif;color:var(--muted)}
+#about{border-top:1px solid var(--line);border-bottom:1px solid var(--line);max-width:1110px}
+#about h2{max-width:420px}
+#packages{max-width:1240px}
+#packages .section-head{border-bottom:0;margin-bottom:26px}
+.pricing-grid{gap:14px}
+.price-card{border-radius:0;background:var(--surface);border:1px solid var(--line);box-shadow:none;padding:clamp(24px,3vw,36px)}
+.price-card.featured{background:var(--sage);border-color:var(--sage-deep);transform:translateY(-5px)}
+.price-card .tag{font:700 9px 'Manrope',sans-serif;letter-spacing:.14em;color:var(--sage-deep)}
+.price-card h3{font-size:42px;margin:28px 0 6px}
+.price{font:500 clamp(36px,4vw,48px)/1.1 'Cormorant Garamond',serif;letter-spacing:-.03em;color:var(--text)}
+.price-desc{font:12px/1.8 'Manrope',sans-serif;color:var(--muted);min-height:65px}
+.price-card ul{border-color:var(--line)}
+.price-card li{font:11px/1.8 'Manrope',sans-serif;color:var(--muted)}
+.price-card li:before{color:var(--sage-deep)}
+.price-cta{align-self:stretch}
+#contact{max-width:none;padding:55px clamp(24px,5vw,66px) 75px}
+.contact{max-width:1108px;margin:auto;border-radius:0;background:var(--sage-deep);color:#FBFAF4;padding:clamp(34px,6vw,76px);position:relative;overflow:hidden}
+.contact:after{content:"M";position:absolute;right:20px;bottom:-135px;font:500 360px/.8 'Cormorant Garamond',serif;color:rgba(255,255,255,.055);pointer-events:none}
+.contact h2{font-size:clamp(54px,7vw,88px);line-height:.9;max-width:500px}
+.contact p{font:12px/1.9 'Manrope',sans-serif;color:#D9E4D8;max-width:510px}
+.contact .email{font-family:'Manrope',sans-serif;color:#FBFAF4;font-size:12px;letter-spacing:.04em}
+.contact .cta{position:relative;z-index:1;background:var(--bg);color:var(--text);white-space:nowrap}
+.contact .cta:hover{background:#fff}
+.contact .socials{font:700 10px 'Manrope',sans-serif;letter-spacing:.1em;text-transform:uppercase}
+.contact .socials a{color:#FBFAF4}
+footer{max-width:1240px;padding:32px clamp(24px,5vw,66px) 44px;font:10px 'Manrope',sans-serif;letter-spacing:.05em}
+.footer-brand img{width:78px}
+.poem-dialog{border-radius:0;border-color:var(--line);background:var(--bg);box-shadow:0 24px 90px rgba(28,48,33,.24)}
+.poem-dialog .poem-meta{font:700 9px 'Manrope',sans-serif;letter-spacing:.16em;color:var(--sage-deep)}
+.poem-dialog h2{font-size:clamp(38px,6vw,62px);line-height:.95}
+.poem-dialog .poem-body{font:18px/1.95 'Cormorant Garamond',serif;color:var(--text)}
+.dialog-close{border-radius:0;background:var(--sage);border-color:var(--line)}
+@media(max-width:800px){
+ nav{padding:14px 20px;gap:16px}nav .brand img{width:80px}
+ nav .links{display:flex;flex-wrap:wrap;justify-content:flex-end;gap:8px 12px;max-width:68%}
+ nav .links a{font-size:9px;letter-spacing:.08em}
+ section{padding:66px 22px}
+ .hero{grid-template-columns:1fr;gap:48px;min-height:unset;padding:74px 22px 78px}
+ .hero h1{font-size:clamp(72px,14vw,112px)}
+ .hero-card{min-height:280px;max-width:570px;margin:0 8px 10px 0}
+ .grid{grid-template-columns:1fr;border-bottom:0}
+ .grid .card,.grid .card:first-child,.grid .card:last-child{padding:24px 0;border-right:0;border-bottom:1px solid var(--line);min-height:unset}
+ .num{margin-bottom:22px}
+ .service-detail{grid-template-columns:1fr}
+ .service-detail article,.service-detail article:first-child{padding:18px 0;border-left:0;border-top:1px solid var(--line)}
+ .work{grid-template-columns:1fr}
+ .work-card{min-height:290px}
+ .process{grid-template-columns:1fr 1fr}
+ .process .card{padding:22px 16px 22px 0}
+ .founder-layout{grid-template-columns:1fr}
+ .founder-photo-wrap,.founder-photo-wrap img{min-height:320px;max-height:520px}
+ .contact{display:block;padding:42px 28px}
+ .contact .cta{margin-top:24px}
+ .pricing-grid{grid-template-columns:1fr}
+ .price-card.featured{transform:none}
+ #why-minho{padding-left:22px;padding-right:22px}
+}
+@media(max-width:480px){
+ nav{align-items:center;flex-wrap:wrap}
+ nav .links{max-width:100%;width:100%;justify-content:space-between;gap:10px}
+ nav .links a{font-size:9px}
+ .hero h1{font-size:clamp(66px,16vw,88px)}
+ .hero-card{padding:30px 25px;min-height:260px}
+ .hero-card .quote{font-size:36px}
+ .section-head h2{font-size:44px}
+ .process{grid-template-columns:1fr}
+ .contact h2{font-size:58px}
+ .price-card h3{font-size:38px}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important;animation:none!important}}
+
+</style>
 </head>
 <body>
-<a class="skip" href="#main">Skip to content</a>
-<div class="announcement">✳ &nbsp; Thoughtful words. Carefully crafted. &nbsp; <a href="#contact">Let’s make something meaningful ↗</a></div>
-<header class="header" id="top">
-<a class="brand" href="#top"><span>minho<span class="rust">.</span></span><small>CREATIVE WRITING & EDITING STUDIO</small></a>
-<button class="menu-toggle" aria-expanded="false" aria-controls="nav" aria-label="Toggle navigation"><i></i><i></i></button>
-<nav id="nav"><a href="#about">Our approach</a><a href="#services">Services</a><a href="#work">Selected words</a><a href="#packages">Packages</a><a class="nav-cta" href="#contact">Start a project ↗</a></nav>
-</header>
-<main id="main">
-<section class="hero shell">
-<div class="hero-copy reveal"><p class="eyebrow">A LITTLE STUDIO FOR BIG FEELINGS</p><h1>Where words<br>take <em>flight.</em></h1>
-<p class="intro">We turn the things you’re trying to say into words people want to remember — with feeling, clarity, and a little bit of magic.</p>
-<div class="actions"><a class="button dark" href="#services">Explore what we do ↗</a><a class="underlink" href="#work">Read a little first ↓</a></div>
-<div class="note"><span>✳</span><p>For people, creators, and brands<br>with something worth saying.</p></div></div>
-<div class="hero-art reveal" aria-label="Decorative paper composition"><div class="sun"></div><div class="orbit"></div><div class="paper back"></div><div class="paper front"><small>A NOTE TO THE WORLD</small><span></span><p>Some things<br>are felt first.<br><em>Written next.</em></p><i>— minho studio</i></div><b class="spark s1">✳</b><b class="spark s2">✦</b><small class="art-caption">WORDS WITH A PULSE · MADE WITH INTENTION</small></div>
-<div class="hero-foot"><span>01 / A STUDIO FOR YOUR WORDS</span><span>SCROLL TO EXPLORE ↓</span></div>
+<div class="root" id="top">
+<nav><a class="brand" href="#top" aria-label="MINHO home"><img src="minho-logo-transparent.png" alt="MINHO — Creative Writing & Editing Studio" /></a><div class="links"><a href="#services">Services</a><a href="#why-minho">Why MINHO</a><a href="#work">Work</a><a href="#packages">Packages</a><a href="#founder">Founder</a><a href="#contact">Contact</a></div></nav>
+<main>
+<section class="hero"><div><div class="eyebrow">Creative Writing & Digital Content Studio</div><h1>Where <em>words</em> take flight.</h1><p>MINHO turns ideas, feelings, stories, and brands into words people remember.</p><a class="cta" href="#contact">Start a project <span>→</span></a></div><div class="hero-card"><p class="quote">“A good sentence doesn't just say something. It makes you feel something.”</p><small>MINHO / Creative practice</small></div></section>
+<section id="services"><div class="section-head"><h2>What MINHO does</h2><p>Creative support for individuals, creators, and growing brands that want their ideas to sound distinctive, human, and memorable.</p></div><div class="grid"><article class="card"><div class="num">01</div><h3>Creative Writing</h3><p>Poetry, stories, personal writing, speeches, letters, and original creative pieces shaped around your idea, emotion, or occasion.</p></article><article class="card"><div class="num">02</div><h3>Copywriting</h3><p>Social captions, brand copy, website copy, campaign concepts, and creative content designed to communicate clearly and connect.</p></article><article class="card"><div class="num">03</div><h3>Editing</h3><p>Proofreading, grammar and clarity checks, creative editing, and tone refinement that keeps your voice while making your writing stronger.</p></article></div><div class="service-detail"><article><h4>For individuals</h4><p>Personal writing, poems, stories, speeches, letters, and special-occasion pieces.</p></article><article><h4>For creators</h4><p>Captions, creative concepts, storytelling, and writing that helps your content sound like you.</p></article><article><h4>For brands</h4><p>Creative copy, website words, campaign ideas, and content with a distinct human voice.</p></article></div><p class="note"><strong>Custom projects:</strong> Every project is different. Share your requirements, timeline, and scope for a tailored quote.</p></section>
+<section id="why-minho"><div class="section-head"><h2>Why MINHO?</h2><p>Because good writing should feel intentional, personal, and unmistakably yours.</p></div><div class="grid"><article class="card"><div class="num">01</div><h3>Original</h3><p>No generic, copy-paste writing. Every piece is created around your idea, audience, and purpose.</p></article><article class="card"><div class="num">02</div><h3>Personal</h3><p>Your voice matters. MINHO shapes and strengthens your message without making it feel like someone else's.</p></article><article class="card"><div class="num">03</div><h3>Thoughtful</h3><p>From the first line to the final word, every detail is considered to make your message clearer and more memorable.</p></article></div></section>
+<section id="work"><div class="section-head"><h2>Selected writing</h2><p>A small window into the words behind MINHO. Open a piece when you're ready to read.</p></div><div class="work">
+<button class="work-card" type="button" data-poem="poem-love" aria-haspopup="dialog" style="color:inherit"><span class="tag">Poetry / Original</span><h3>Love in the Digital Age</h3><span class="tag">Distance · connection · waiting</span><span class="read-link">Read poem ↗</span></button>
+<button class="work-card" type="button" data-poem="poem-fire" aria-haspopup="dialog" style="color:inherit"><span class="tag">Poetry / Original</span><h3>A fire he was when our eyes first met…</h3><span class="tag">Unrequited love · memory · longing</span><span class="read-link">Read poem ↗</span></button>
+</div></section>
+<section id="process"><div class="section-head"><h2>How it works</h2><p>A simple, collaborative process from first idea to final words.</p></div><div class="process"><article class="card"><div class="num">01</div><h3>Tell us</h3><p>Share your idea, what you need, your preferred style, and your deadline.</p></article><article class="card"><div class="num">02</div><h3>Shape it</h3><p>MINHO turns your brief into a creative direction and first draft.</p></article><article class="card"><div class="num">03</div><h3>Refine it</h3><p>We review the piece together and make the revisions needed to get it right.</p></article><article class="card"><div class="num">04</div><h3>Make it yours</h3><p>You receive the polished final piece, ready to share, publish, or use.</p></article></div></section>
+<section id="founder" class="about"><div class="founder-layout"><div class="founder-photo-wrap"><img src="founderphoto.jpeg" alt="Shwetangi Srivastava, founder of MINHO" onerror="this.style.display='none';this.nextElementSibling.hidden=false"><div class="founder-placeholder" hidden><strong>Your portrait goes here</strong>Upload your photo to the repository root as <code>founderphoto.jpeg</code>.</div></div><div><span class="eyebrow">Behind the words</span><h2>Meet the founder.</h2><p><strong>Shwetangi Srivastava</strong> is the founder and creative writer behind MINHO.</p><p>MINHO grew from a love for writing and a belief that the right words can make an idea feel more human, more memorable, and more meaningful.</p><p>Whether it’s a story, a poem, a piece of copy, or writing that needs a sharper voice, MINHO brings a personal and thoughtful approach to every project.</p></div></div></section>
+<section id="about" class="about"><h2>Built from a love for words.</h2><div><p>MINHO is an independent creative studio founded by Shwetangi Srivastava, bringing together writing, storytelling, digital content, and creative communication.</p><p>It started with a simple belief: the right words can turn an idea into something people remember.</p><p><strong>How it works:</strong> Tell us what you need → share your idea and preferences → receive a tailored creative direction → refine the final piece together.</p></div></section>
+
+<section id="packages" aria-labelledby="packages-title">
+  <div class="section-head">
+    <div><span class="eyebrow">Simple, transparent options</span><h2 id="packages-title">Packages that fit<br>your next idea.</h2></div>
+    <p>Choose a starting point. Every project is confirmed in writing before work begins, so scope, timeline and final price are clear.</p>
+  </div>
+  <div class="pricing-grid">
+    <article class="price-card">
+      <span class="tag">01 · A thoughtful start</span><h3>Basic</h3>
+      <p class="price">₹1,799</p><p class="price-desc">For a focused piece that needs the right words.</p>
+      <ul><li>One short-form writing or editing task</li><li>One revision round</li><li>Delivery timeline agreed in advance</li></ul>
+      <a class="cta price-cta" href="#contact" data-package="Basic">Choose Basic ↗</a>
+    </article>
+    <article class="price-card featured">
+      <span class="tag">02 · Most versatile</span><h3>Business</h3>
+      <p class="price">₹3,499</p><p class="price-desc">For creators and small brands ready to communicate clearly.</p>
+      <ul><li>One defined content bundle or copy project</li><li>Two revision rounds</li><li>Voice and audience alignment</li></ul>
+      <a class="cta price-cta" href="#contact" data-package="Business">Choose Business ↗</a>
+    </article>
+    <article class="price-card">
+      <span class="tag">03 · Made around you</span><h3>Premium</h3>
+      <p class="price">₹7,499</p><p class="price-desc">For a larger or more tailored creative project.</p>
+      <ul><li>Custom scope agreed before starting</li><li>Two revision rounds</li><li>Priority planning and delivery schedule</li></ul>
+      <a class="cta price-cta" href="#contact" data-package="Premium">Discuss Premium ↗</a>
+    </article>
+  </div>
+  <p class="note">Prices are starting packages. Final inclusions, word count, timeline and any additional charges will be confirmed in writing before payment.</p>
 </section>
-<section class="manifesto shell" id="about"><div class="section-label"><span>01</span> OUR POINT OF VIEW</div><div class="reveal"><p class="eyebrow">NOT JUST WORDS ON A PAGE</p><h2>Good writing doesn’t just <em>say something.</em><br>It makes someone <em>feel it.</em></h2><div class="manifesto-bottom"><p>At MINHO, we believe the right words can make a story linger, a brand feel human, and a quiet thought finally find its voice.</p><span class="handwritten">Less noise.<br>More meaning.</span></div></div></section>
-<section class="services band" id="services"><div class="shell"><div class="section-heading reveal"><div><p class="eyebrow">THE THINGS WE MAKE</p><h2>Words for every<br><em>kind of feeling.</em></h2></div><p class="aside">From the deeply personal to the proudly professional, we help your message sound like you — only clearer.</p></div>
-<div class="service-grid">
-<article class="service reveal"><small>01 / PERSONAL</small><b>✳</b><h3>Poetry & prose</h3><p>Poems, letters, personal pieces, and little words for the things that are hard to explain.</p><a href="#contact" data-service="Poetry & prose">Make it personal ↗</a></article>
-<article class="service reveal"><small>02 / STORY</small><b class="aa">Aa</b><h3>Storytelling</h3><p>Stories with a heartbeat — shaped for readers, communities, and people who love a good narrative.</p><a href="#contact" data-service="Storytelling">Tell your story ↗</a></article>
-<article class="service reveal"><small>03 / POLISH</small><b>⌁</b><h3>Editing & proofreading</h3><p>Thoughtful edits that protect your voice while making every sentence cleaner and more confident.</p><a href="#contact" data-service="Editing & proofreading">Give it a polish ↗</a></article>
-<article class="service reveal"><small>04 / BRAND</small><b>✷</b><h3>Content & copy</h3><p>Captions, website copy, brand stories, and messaging that makes people stop and pay attention.</p><a href="#contact" data-service="Content & copy">Find your voice ↗</a></article>
-</div></div></section>
-<section class="quote"><span>“</span><p>The world is full of words.<br><em>Let’s give yours a reason to stay.</em></p><small>A MINHO STUDIO BELIEF</small></section>
-<section class="work shell" id="work"><div class="section-label"><span>02</span> SELECTED WORDS</div><div class="section-heading reveal"><div><p class="eyebrow">A GLIMPSE INTO OUR NOTEBOOKS</p><h2>A few words,<br><em>out in the world.</em></h2></div><p class="aside">A small selection of the moods and moments that inspire the way we write.</p></div>
-<div class="work-grid">
-<article class="work-card reveal"><div class="art poem-art"><small>FIELD NOTES / 001</small><p>love,<br>in the<br><em>digital age</em></p><span>A POEM</span></div><div class="work-meta"><div><small>POETRY</small><h3>Love in the Digital Age</h3></div><b>↗</b></div><p class="description">A reflection on modern love, glowing screens, and the ache of being almost close.</p><button class="read-link" data-reading="poem">Read an excerpt ↗</button></article>
-<article class="work-card reveal"><div class="art story-art"><div class="story-sun"></div><div class="horizon"></div><small>FIELD NOTES / 002</small><p>somewhere<br>between <em>then</em><br>and now</p></div><div class="work-meta"><div><small>STORYTELLING</small><h3>Somewhere Between</h3></div><b>↗</b></div><p class="description">An imagined vignette about change, memory, and learning to begin again.</p><button class="read-link" data-reading="story">Read a little ↗</button></article>
-</div><p class="fineprint">Sample concepts for this first homepage. Replace them with your final portfolio pieces if you prefer.</p></section>
-<section class="packages band" id="packages"><div class="shell"><div class="section-label"><span>03</span> THE STARTING POINT</div><div class="section-heading reveal"><div><p class="eyebrow">CLEAR, CONSIDERED, FLEXIBLE</p><h2>Good work begins<br><em>with a conversation.</em></h2></div><p class="aside">Choose a starting point. We’ll confirm scope, timeline, and the final quote before work begins.</p></div>
-<div class="pricing">
-<article class="price-card reveal"><small>01 / THE ESSENTIAL</small><h3>Basic</h3><p class="for">For one clear idea, carefully expressed.</p><p class="price">₹1,799</p><p class="detail">A focused, small-scale writing or editing project.</p><ul><li>One agreed deliverable</li><li>One revision round</li><li>Clear delivery timeline</li></ul><a class="button outline" href="#contact" data-package="Basic">Choose Basic ↗</a></article>
-<article class="price-card featured reveal"><span class="ribbon">A LITTLE MORE ROOM</span><small>02 / THE SIGNATURE</small><h3>Business</h3><p class="for">For a story that needs a little more space.</p><p class="price">₹3,499</p><p class="detail">For a more involved content, storytelling, or editing brief.</p><ul><li>Expanded project scope</li><li>Two revision rounds</li><li>Voice and tone alignment</li></ul><a class="button dark" href="#contact" data-package="Business">Choose Business ↗</a></article>
-<article class="price-card reveal"><small>03 / THE FULL PICTURE</small><h3>Premium</h3><p class="for">For a bigger vision with more moving parts.</p><p class="price">₹7,499</p><p class="detail">A tailored package for a substantial or multi-part brief.</p><ul><li>Priority project planning</li><li>Three revision rounds</li><li>Personalised creative direction</li></ul><a class="button outline" href="#contact" data-package="Premium">Choose Premium ↗</a></article>
-</div><p class="offer">✳ &nbsp; <strong>New-client offer:</strong> 50% off your first project, up to ₹2,500 off. Eligibility and final price are confirmed in writing before payment. <a href="#contact">Ask about the offer ↗</a></p></div></section>
-<section class="process shell"><div class="reveal"><p class="eyebrow">SIMPLE BY DESIGN</p><h2>From “I have an idea”<br>to <em>“that’s exactly it.”</em></h2></div><div class="steps"><article class="step reveal"><span>01</span><div><h3>Tell us what’s on your mind</h3><p>Share the idea, the feeling, the audience, or even the messy first draft.</p></div></article><article class="step reveal"><span>02</span><div><h3>We shape the brief</h3><p>We agree on the deliverable, package, timeline, and price before work starts.</p></div></article><article class="step reveal"><span>03</span><div><h3>Make it mean something</h3><p>We write, refine, and deliver work that feels considered and true to your voice.</p></div></article></div></section>
-<section class="contact" id="contact"><div class="shell contact-inner"><div class="reveal"><p class="eyebrow">YOUR TURN, WHENEVER YOU’RE READY</p><h2>Have something<br>on your <em>mind?</em></h2><p class="contact-intro">Tell us a little about it. A rough idea is more than enough to begin.</p><div class="note"><span>✳</span><p>No pressure. No complicated brief.<br>Just a conversation about words.</p></div></div>
-<form class="contact-form reveal" id="project-form"><label for="name">Your name</label><input id="name" name="name" autocomplete="name" placeholder="What should we call you?" required><label for="email">Email address</label><input id="email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required><label for="service">What are you looking for?</label><select id="service" name="service" required><option value="">Choose a service</option><option>Poetry & prose</option><option>Storytelling</option><option>Editing & proofreading</option><option>Content & copy</option><option>Not sure yet</option></select><label for="package">Package (optional)</label><select id="package" name="package"><option value="">I’d like to discuss it</option><option>Basic — ₹1,799</option><option>Business — ₹3,499</option><option>Premium — ₹7,499</option></select><label for="brief">A little about your idea</label><textarea id="brief" name="brief" rows="4" placeholder="The idea, the deadline, the feeling — whatever you know so far."></textarea><button class="button dark submit" type="submit">Prepare my enquiry ↗</button><p class="hint">Opens your email app with an enquiry drafted. It does not send anything automatically.</p><p id="form-status" role="status"></p></form></div></section>
+
+<section id="contact"><div class="contact"><div><h2>Have an idea?</h2><p>Tell MINHO what you're working on, what you need, and when you need it. Whether it's a poem, a story, a brand idea, or content that needs a stronger voice, let's create something worth remembering.</p><div class="contact-details"><a class="email" href="mailto:foundminhostudio@gmail.com?subject=MINHO%20Project%20Inquiry">foundminhostudio@gmail.com</a></div><div class="socials"><a href="https://www.linkedin.com/in/shwetangi-srivastava-1b465a272/" target="_blank" rel="noopener">LinkedIn →</a><a href="https://www.instagram.com/minho_studio/" target="_blank" rel="noopener">Instagram →</a></div></div><a class="cta" href="mailto:foundminhostudio@gmail.com?subject=MINHO%20Project%20Inquiry&body=Hi%20MINHO%2C%0A%0AI%27d%20like%20to%20discuss%20a%20project.%0A%0AProject%3A%0AWhat%20I%20need%3A%0ADeadline%3A%0ABudget%20range%3A%0AAdditional%20details%3A%0A">Start an inquiry →</a></div></section>
 </main>
-<footer><div class="footer-top"><a class="brand footer-brand" href="#top"><span>minho<span class="rust">.</span></span><small>CREATIVE WRITING & EDITING STUDIO</small></a><p>Where words take flight.<br><em>And meaning finds its way.</em></p><a href="#top">Back to the beginning ↑</a></div><div class="footer-bottom"><span>© <span id="year"></span> MINHO Studio. Made with intention.</span><span>WORDS · STORIES · MEANING</span><a href="https://www.instagram.com/minho_studio/" target="_blank" rel="noreferrer">Instagram ↗</a></div></footer>
-<dialog id="reading-modal"><button class="close" aria-label="Close reading window">×</button><p class="eyebrow" id="modal-kicker">FROM THE NOTEBOOK</p><h2 id="modal-title">A little reading</h2><div id="modal-text"></div><small class="modal-foot">A MINHO NOTEBOOK EXCERPT</small></dialog>
-</body></html>
+
+<dialog class="poem-dialog" id="poem-love" aria-labelledby="poem-love-title"><div class="dialog-top"><span class="poem-meta">Original poetry · Shwetangi Srivastava</span><button class="dialog-close" type="button" aria-label="Close poem">×</button></div><h2 id="poem-love-title">Love in the Digital Age</h2><div class="poem-body">Two souls,
+Long distances, far-off lands
+
+Love bridging the two estranged bands
+But sadly, it’s all built on the internet
+With various boundaries already preset
+
+Sometimes busyness, sometimes tiredness
+Sometimes, the loving weighing a little less
+Sometimes connectivity issues, souls or network
+Different opinions collide like that of a spoon and fork
+
+Sometimes the urge to meet stronger, sometimes weak
+And a strong, tight hug till the bodies squeak
+You fall in love and fall out of love sometimes, and that’s fine
+Because the longer love stays, it ages well like a good old wine
+
+You spend time looking at each other through the screen
+Imagining to grow old together when the grass stays green
+Dreaming of a fictional world with just the two of you in it
+And counting the minutes till you meet slowly, bit by bit
+
+The times seem to move slowly while you love someone online
+Planning your future all at once, sketching it as a dreamy outline
+Smiles flashed on the screen, virtual kisses blown to each other
+Making one smile on the blushing and shy cuteness of another
+
+Texting each other words of affirmation imagined as voices
+And exploring each other all over again as though novices
+A small tear shed that cant be wiped by the person virtually
+What starts as mere attraction becomes love, gradually
+
+Where love exists, all virtual barriers seem irrelevant
+For every topic with your partner, you are free to vent
+A partner who stays with you despite being far away
+As they always say, where there's a will, there is a way
+
+May love find its way back to you, hopefully, one day
+May life’s surprise be so big that you have nothing to say
+For my love in a far-off land, he continues to live
+And only memories are what we have to relive
+
+His presence, even in an unknown country or place
+It gives me peace somehow through my internet space
+Now I smile, closing the album of our years awaited love story
+Which now, for our coming generations, has become history
+
+Finally, we had made it to the end, no longer virtual but in real
+All the wounds and pains we suffered, now only time will heal
+For this is not the end but the beginning of something new
+Not all can make it up to here, only a selected handful few
+
+I miss the old us sometimes; God knows where they went
+Maybe just for our love story, they were handpicked and sent
+We had our fair share of love and arguments each time we met
+But we knew these arguments and life, together made us set
+
+Just like it worked out for us maybe it might work out for you
+The key being loyal for each other and to yourself always be true
+I bid adieu to you as I embark on my next journey as a poet
+Everyone’s love eventually works, I’m sure you’ll know it!
+
+~ Shwetangi Srivastava</div></dialog>
+<dialog class="poem-dialog" id="poem-fire" aria-labelledby="poem-fire-title"><div class="dialog-top"><span class="poem-meta">Original poetry · Shwetangi Srivastava</span><button class="dialog-close" type="button" aria-label="Close poem">×</button></div><h2 id="poem-fire-title">A fire he was when our eyes first met…</h2><div class="poem-body">A fire he was when our eyes first met…
+A smile of his ice easily could melt…
+Something special he had in those eyes…
+There lay answers for the what, when and whys.
+
+Life lagged in appreciating his beauty…
+Nor did he realise he was a cutie…
+His past kept holding him back from trust…
+For him, there lay only love and no lust…
+
+But maybe he’ll find his one someday…
+In a thorn bed of unrequitedness, I shall lay…
+I still have those letters of unrequitedness stored…
+Where evident it was that in love for me he was bored…
+
+Where do I find again a man as divine as him?
+Whose smile makes the city’s lighting seem dim…
+Why is this ambiguous grief for him there?
+Even though I’ve lost him before too
+Isn’t grief for your relief, meant to be share?
+So that life doesn’t alone beat you black and blue?
+
+I shall never love or trust a mortal again…
+I’d rather die than in unrequited love pain…
+If he doesn’t come back I’ll sacrifice him gladly…
+
+And this story has no happy ending sadly…
+
+~ Shwetangi Srivastava</div></dialog>
+<script>
+(function(){
+ document.querySelectorAll('[data-poem]').forEach(function(button){button.addEventListener('click',function(){var dialog=document.getElementById(button.getAttribute('data-poem'));if(dialog&&typeof dialog.showModal==='function')dialog.showModal();});});
+ document.querySelectorAll('.poem-dialog').forEach(function(dialog){dialog.querySelector('.dialog-close').addEventListener('click',function(){dialog.close();});dialog.addEventListener('click',function(event){if(event.target===dialog)dialog.close();});});
+ document.addEventListener('keydown',function(event){if(event.key==='Escape')document.querySelectorAll('.poem-dialog[open]').forEach(function(d){d.close();});});
+})();
+</script>
+
+<footer><div class="footer-brand"><img src="minho-logo-transparent.png" alt="MINHO — Creative Writing & Editing Studio" /><span>© 2026 MINHO Studio</span></div><span>Where words take flight.</span></footer>
+</div>
+</body>
+</html>

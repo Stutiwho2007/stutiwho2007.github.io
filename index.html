@@ -305,6 +305,34 @@ footer{max-width:1240px;padding:32px clamp(24px,5vw,66px) 44px;font:10px 'Manrop
 }
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important;animation:none!important}}
 
+
+.checkout-trigger{font:600 10px 'Manrope',sans-serif;cursor:pointer;border:0;width:100%}
+/* MINHO checkout experience */
+.checkout-dialog{width:min(760px,calc(100% - 24px));max-height:92vh;overflow:auto;border:1px solid var(--line);padding:0;background:var(--bg);color:var(--text);box-shadow:0 30px 100px rgba(25,42,29,.3)}
+.checkout-dialog::backdrop{background:rgba(23,36,27,.68);backdrop-filter:blur(5px)}
+.checkout-shell{display:grid;grid-template-columns:1fr .9fr}
+.checkout-main{padding:clamp(24px,5vw,42px)}
+.checkout-side{background:var(--sage);padding:clamp(24px,4vw,34px);border-left:1px solid var(--line)}
+.checkout-kicker{font:700 9px 'Manrope',sans-serif;letter-spacing:.16em;text-transform:uppercase;color:var(--sage-deep)}
+.checkout-title{font:500 clamp(36px,5vw,52px)/.98 'Cormorant Garamond',serif;margin:12px 0}
+.checkout-copy{font:12px/1.8 'Manrope',sans-serif;color:var(--muted)}
+.checkout-close{float:right;border:1px solid var(--line);background:transparent;color:var(--text);font-size:22px;width:38px;height:38px;cursor:pointer}
+.checkout-form label{display:block;font:700 10px 'Manrope',sans-serif;letter-spacing:.06em;margin:17px 0 7px}
+.checkout-form input,.checkout-form textarea,.checkout-form select{width:100%;padding:12px;border:1px solid var(--line);background:var(--surface);color:var(--text);font:13px 'Manrope',sans-serif;border-radius:0}
+.checkout-form textarea{min-height:90px;resize:vertical}
+.checkout-form .cta{margin-top:20px;border:0;cursor:pointer;width:100%;justify-content:center}
+.checkout-total-label{font:700 9px 'Manrope',sans-serif;letter-spacing:.15em;text-transform:uppercase;color:var(--sage-deep)}
+.checkout-package{font:500 30px 'Cormorant Garamond',serif;margin:8px 0 24px}
+.checkout-row{display:flex;justify-content:space-between;gap:12px;font:12px/1.8 'Manrope',sans-serif;padding:10px 0;border-bottom:1px solid rgba(69,98,76,.2)}
+.checkout-row strong{font-weight:700}
+.checkout-row.discount{color:var(--sage-deep)}
+.checkout-row.final{font-size:14px;border-bottom:0;padding-top:18px}
+.checkout-row.final strong{font-size:24px}
+.checkout-badge{display:inline-block;margin:12px 0;padding:8px 10px;background:#f8f6ef;color:#45624c;font:700 9px 'Manrope',sans-serif;letter-spacing:.08em;text-transform:uppercase}
+.checkout-payment-note{margin-top:25px;padding-top:20px;border-top:1px solid rgba(69,98,76,.25);font:11px/1.8 'Manrope',sans-serif;color:#45624c}
+.checkout-status{display:none;margin-top:14px;font:12px/1.7 'Manrope',sans-serif;color:var(--sage-deep)}
+@media(max-width:650px){.checkout-shell{grid-template-columns:1fr}.checkout-side{border-left:0;border-top:1px solid var(--line);grid-row:1}.checkout-main{grid-row:2}.checkout-dialog{max-height:95vh}}
+
 </style>
 </head>
 <body>
@@ -332,19 +360,19 @@ footer{max-width:1240px;padding:32px clamp(24px,5vw,66px) 44px;font:10px 'Manrop
       <span class="tag">01 · A thoughtful start</span><h3>Basic</h3>
       <p class="price">₹1,799</p><p class="price-desc">For a focused piece that needs the right words.</p>
       <ul><li>One short-form writing or editing task</li><li>One revision round</li><li>Delivery timeline agreed in advance</li></ul>
-      <a class="cta price-cta" href="#contact" data-package="Basic">Choose Basic ↗</a>
+      <button class="cta price-cta checkout-trigger" type="button" data-package="Basic" data-price="1799">Choose Basic ↗</button>
     </article>
     <article class="price-card featured">
       <span class="tag">02 · Most versatile</span><h3>Business</h3>
       <p class="price">₹3,499</p><p class="price-desc">For creators and small brands ready to communicate clearly.</p>
       <ul><li>One defined content bundle or copy project</li><li>Two revision rounds</li><li>Voice and audience alignment</li></ul>
-      <a class="cta price-cta" href="#contact" data-package="Business">Choose Business ↗</a>
+      <button class="cta price-cta checkout-trigger" type="button" data-package="Business" data-price="3499">Choose Business ↗</button>
     </article>
     <article class="price-card">
       <span class="tag">03 · Made around you</span><h3>Premium</h3>
       <p class="price">₹7,499</p><p class="price-desc">For a larger or more tailored creative project.</p>
       <ul><li>Custom scope agreed before starting</li><li>Two revision rounds</li><li>Priority planning and delivery schedule</li></ul>
-      <a class="cta price-cta" href="#contact" data-package="Premium">Discuss Premium ↗</a>
+      <button class="cta price-cta checkout-trigger" type="button" data-package="Premium" data-price="7499">Choose Premium ↗</button>
     </article>
   </div>
   <p class="note">Prices are starting packages. Final inclusions, word count, timeline and any additional charges will be confirmed in writing before payment.</p>
@@ -352,6 +380,50 @@ footer{max-width:1240px;padding:32px clamp(24px,5vw,66px) 44px;font:10px 'Manrop
 
 <section id="contact"><div class="contact"><div><h2>Have an idea?</h2><p>Tell MINHO what you're working on, what you need, and when you need it. Whether it's a poem, a story, a brand idea, or content that needs a stronger voice, let's create something worth remembering.</p><div class="contact-details"><a class="email" href="mailto:foundminhostudio@gmail.com?subject=MINHO%20Project%20Inquiry">foundminhostudio@gmail.com</a></div><div class="socials"><a href="https://www.linkedin.com/in/shwetangi-srivastava-1b465a272/" target="_blank" rel="noopener">LinkedIn →</a><a href="https://www.instagram.com/minho_studio/" target="_blank" rel="noopener">Instagram →</a></div></div><a class="cta" href="mailto:foundminhostudio@gmail.com?subject=MINHO%20Project%20Inquiry&body=Hi%20MINHO%2C%0A%0AI%27d%20like%20to%20discuss%20a%20project.%0A%0AProject%3A%0AWhat%20I%20need%3A%0ADeadline%3A%0ABudget%20range%3A%0AAdditional%20details%3A%0A">Start an inquiry →</a></div></section>
 </main>
+
+
+<dialog class="checkout-dialog" id="checkout-dialog" aria-labelledby="checkout-title">
+  <div class="checkout-shell">
+    <div class="checkout-main">
+      <button class="checkout-close" type="button" aria-label="Close checkout" id="checkout-close">×</button>
+      <span class="checkout-kicker">MINHO · Secure order request</span>
+      <h2 class="checkout-title" id="checkout-title">Your next idea, beautifully worded.</h2>
+      <p class="checkout-copy">Complete your project details below. Your first-project offer is shown in the order summary. MINHO will confirm the final scope and send payment instructions before work begins.</p>
+      <form class="checkout-form" id="checkout-form">
+        <input type="hidden" id="checkout-package" name="package">
+        <label for="checkout-name">Your name</label>
+        <input id="checkout-name" name="name" autocomplete="name" required placeholder="Name">
+        <label for="checkout-email">Email address</label>
+        <input id="checkout-email" name="email" type="email" autocomplete="email" required placeholder="you@example.com">
+        <label for="checkout-type">What do you need?</label>
+        <select id="checkout-type" name="projectType" required>
+          <option value="">Choose a project type</option>
+          <option>Creative writing / poetry / story</option>
+          <option>Copywriting / brand content</option>
+          <option>Editing / proofreading</option>
+          <option>Other / custom project</option>
+        </select>
+        <label for="checkout-brief">Project brief</label>
+        <textarea id="checkout-brief" name="brief" required placeholder="Tell us what you have in mind, the audience, and any key details."></textarea>
+        <label for="checkout-deadline">Preferred deadline</label>
+        <input id="checkout-deadline" name="deadline" type="text" placeholder="e.g. 25 October">
+        <button class="cta" type="submit">Request order & quote →</button>
+        <p class="checkout-copy">This submits an inquiry, not a charge. You'll review the confirmed scope and payment details before paying.</p>
+        <p class="checkout-status" id="checkout-status" role="status">Your email app should open with your order request. If it doesn't, email foundminhostudio@gmail.com directly.</p>
+      </form>
+    </div>
+    <aside class="checkout-side">
+      <span class="checkout-total-label">Order summary</span>
+      <div class="checkout-package" id="checkout-package-name">Basic package</div>
+      <span class="checkout-badge">50% off · first project</span>
+      <div class="checkout-row"><span>Package price</span><strong id="checkout-original">₹1,799</strong></div>
+      <div class="checkout-row discount"><span>First-project discount</span><strong id="checkout-discount">−₹900</strong></div>
+      <div class="checkout-row final"><span>Estimated total</span><strong id="checkout-final">₹899</strong></div>
+      <p class="checkout-copy">The discount is an introductory offer for first-time MINHO clients. Amounts are estimates until your brief and project scope are confirmed.</p>
+      <div class="checkout-payment-note"><strong>Payment</strong><br>After reviewing your brief, MINHO will confirm the final quote and send the available payment instructions. No payment is taken on this page.</div>
+    </aside>
+  </div>
+</dialog>
 
 <dialog class="poem-dialog" id="poem-love" aria-labelledby="poem-love-title"><div class="dialog-top"><span class="poem-meta">Original poetry · Shwetangi Srivastava</span><button class="dialog-close" type="button" aria-label="Close poem">×</button></div><h2 id="poem-love-title">Love in the Digital Age</h2><div class="poem-body">Two souls,
 Long distances, far-off lands
@@ -446,6 +518,55 @@ And this story has no happy ending sadly…
 
 ~ Shwetangi Srivastava</div></dialog>
 <script>
+
+(function(){
+ const dialog=document.getElementById('checkout-dialog');
+ if(!dialog) return;
+ const prices={Basic:1799,Business:3499,Premium:7499};
+ const money=n=>'₹'+Math.round(n).toLocaleString('en-IN');
+ document.querySelectorAll('.checkout-trigger').forEach(button=>{
+  button.addEventListener('click',()=>{
+   const name=button.dataset.package||'Basic';
+   const price=Number(button.dataset.price)||prices[name]||0;
+   const discount=Math.round(price*0.5);
+   document.getElementById('checkout-package').value=name;
+   document.getElementById('checkout-package-name').textContent=name+' package';
+   document.getElementById('checkout-original').textContent=money(price);
+   document.getElementById('checkout-discount').textContent='−'+money(discount);
+   document.getElementById('checkout-final').textContent=money(price-discount);
+   document.getElementById('checkout-status').style.display='none';
+   if(typeof dialog.showModal==='function') dialog.showModal();
+  });
+ });
+ document.getElementById('checkout-close').addEventListener('click',()=>dialog.close());
+ dialog.addEventListener('click',event=>{if(event.target===dialog)dialog.close();});
+ document.getElementById('checkout-form').addEventListener('submit',event=>{
+  event.preventDefault();
+  const form=new FormData(event.currentTarget);
+  const pkg=String(form.get('package')||'');
+  const price=prices[pkg]||0;
+  const discount=Math.round(price*0.5);
+  const body=[
+   'Hi MINHO, I would like to request an order and quote.',
+   '',
+   'Package: '+pkg,
+   'Listed price: '+money(price),
+   'First-project discount (50%): -'+money(discount),
+   'Estimated total: '+money(price-discount),
+   '',
+   'Name: '+form.get('name'),
+   'Email: '+form.get('email'),
+   'Project type: '+form.get('projectType'),
+   'Project brief: '+form.get('brief'),
+   'Preferred deadline: '+(form.get('deadline')||'Not specified'),
+   '',
+   'Please confirm the scope, timeline, final price, and payment instructions.'
+  ].join('\n');
+  document.getElementById('checkout-status').style.display='block';
+  window.location.href='mailto:foundminhostudio@gmail.com?subject='+encodeURIComponent('MINHO order request - '+pkg)+'&body='+encodeURIComponent(body);
+ });
+})();
+
 (function(){
  document.querySelectorAll('[data-poem]').forEach(function(button){button.addEventListener('click',function(){var dialog=document.getElementById(button.getAttribute('data-poem'));if(dialog&&typeof dialog.showModal==='function')dialog.showModal();});});
  document.querySelectorAll('.poem-dialog').forEach(function(dialog){dialog.querySelector('.dialog-close').addEventListener('click',function(){dialog.close();});dialog.addEventListener('click',function(event){if(event.target===dialog)dialog.close();});});

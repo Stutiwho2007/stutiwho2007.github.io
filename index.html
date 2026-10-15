@@ -593,18 +593,28 @@ And this story has no happy ending sadly…
 
   if (!button || !status) return;
 
-  button.addEventListener('click', async function () {
+  button.addEventListener('click', function () {
     const upi = 'shwetangisrivastava@fam';
 
-    try {
-      await navigator.clipboard.writeText(upi);
-      status.textContent = 'UPI ID copied successfully!';
-    } catch (error) {
-      status.textContent = 'Copy unavailable. Please copy manually: ' + upi;
-    }
+    status.textContent = '';
+
+    const label = document.createElement('p');
+    label.textContent = 'Select the UPI ID below and press Ctrl + C:';
+
+    const input = document.createElement('input');
+    input.type = 'text';
+    input.value = upi;
+    input.readOnly = true;
+    input.style.width = '100%';
+    input.style.padding = '10px';
+
+    status.appendChild(label);
+    status.appendChild(input);
+
+    input.focus();
+    input.select();
   });
 })();
-</script>
 
 <footer><div class="footer-brand"><img src="minho-logo-transparent.png" alt="MINHO — Creative Writing & Editing Studio" /><span>© 2026 MINHO Studio</span></div><span>Where words take flight.</span></footer>
 </div>

@@ -420,7 +420,21 @@ footer{max-width:1240px;padding:32px clamp(24px,5vw,66px) 44px;font:10px 'Manrop
       <div class="checkout-row discount"><span>First-project discount</span><strong id="checkout-discount">−₹900</strong></div>
       <div class="checkout-row final"><span>Estimated total</span><strong id="checkout-final">₹899</strong></div>
       <p class="checkout-copy">The discount is an introductory offer for first-time MINHO clients. Amounts are estimates until your brief and project scope are confirmed.</p>
-      <div class="checkout-payment-note"><strong>Payment</strong><br>After reviewing your brief, MINHO will confirm the final quote and send the available payment instructions. No payment is taken on this page.</div>
+      <div class="checkout-payment-note">
+  <strong>Pay MINHO via FamPay</strong>
+  <p>After MINHO confirms your final quote, scan the QR code or copy the UPI ID below to pay.</p>
+  <img
+    src="fampay-qr.jpeg"
+    alt="MINHO FamPay UPI payment QR code"
+    style="display:block;width:220px;max-width:100%;height:auto;margin:16px auto;border-radius:12px;"
+  >
+  <p><strong>UPI ID:</strong>
+    <span id="minho-upi">shwetangisrivastava@fam</span>
+  </p>
+  <button type="button" id="copy-minho-upi">Copy UPI ID</button>
+  <p id="minho-copy-status" aria-live="polite"></p>
+  <p>Pay only after MINHO confirms your final amount. Your order is confirmed after payment is manually verified.</p>
+</div>
     </aside>
   </div>
 </dialog>

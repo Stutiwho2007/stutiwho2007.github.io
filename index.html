@@ -306,7 +306,7 @@ footer{max-width:1240px;padding:32px clamp(24px,5vw,66px) 44px;font:10px 'Manrop
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important;animation:none!important}}
 
 
-.checkout-trigger{font:600 10px 'Manrope',sans-serif;cursor:pointer;border:0;width:100%}
+}.checkout-trigger{font:600 10px 'Manrope',sans-serif;cursor:pointer;border:0;width:100%}
 /* MINHO checkout experience */
 .checkout-dialog{width:min(760px,calc(100% - 24px));max-height:92vh;overflow:auto;border:1px solid var(--line);padding:0;background:var(--bg);color:var(--text);box-shadow:0 30px 100px rgba(25,42,29,.3)}
 .checkout-dialog::backdrop{background:rgba(23,36,27,.68);backdrop-filter:blur(5px)}
@@ -331,7 +331,7 @@ footer{max-width:1240px;padding:32px clamp(24px,5vw,66px) 44px;font:10px 'Manrop
 .checkout-badge{display:inline-block;margin:12px 0;padding:8px 10px;background:#f8f6ef;color:#45624c;font:700 9px 'Manrope',sans-serif;letter-spacing:.08em;text-transform:uppercase}
 .checkout-payment-note{margin-top:25px;padding-top:20px;border-top:1px solid rgba(69,98,76,.25);font:11px/1.8 'Manrope',sans-serif;color:#45624c}
 .checkout-status{display:none;margin-top:14px;font:12px/1.7 'Manrope',sans-serif;color:var(--sage-deep)}
-@media(max-width:650px){.checkout-shell{grid-template-columns:1fr}.checkout-side{border-left:0;border-top:1px solid var(--line);grid-row:1}.checkout-main{grid-row:2}.checkout-dialog{max-height:95vh}}
+@media(max-width:650px){.checkout-shell{grid-template-columns:1fr}.checkout-side{border-left:0;border-top:1px solid var(--line);grid-row:1}.checkout-main{grid-row:2}.checkout-dialog{max-height:95vh}
 
 </style>
 </head>
@@ -395,6 +395,8 @@ footer{max-width:1240px;padding:32px clamp(24px,5vw,66px) 44px;font:10px 'Manrop
         <input id="checkout-name" name="name" autocomplete="name" required placeholder="Name">
         <label for="checkout-email">Email address</label>
         <input id="checkout-email" name="email" type="email" autocomplete="email" required placeholder="you@example.com">
+         <label for="checkout-phone">Phone number</label>
+         <input id="checkout-phone" name="phone" type="tel" autocomplete="tel" required placeholder="Your phone number">
         <label for="checkout-type">What do you need?</label>
         <select id="checkout-type" name="projectType" required>
           <option value="">Choose a project type</option>

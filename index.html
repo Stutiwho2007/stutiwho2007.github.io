@@ -586,6 +586,24 @@ And this story has no happy ending sadly…
  document.querySelectorAll('.poem-dialog').forEach(function(dialog){dialog.querySelector('.dialog-close').addEventListener('click',function(){dialog.close();});dialog.addEventListener('click',function(event){if(event.target===dialog)dialog.close();});});
  document.addEventListener('keydown',function(event){if(event.key==='Escape')document.querySelectorAll('.poem-dialog[open]').forEach(function(d){d.close();});});
 })();
+
+(function () {
+  const button = document.getElementById('copy-minho-upi');
+  const status = document.getElementById('minho-copy-status');
+
+  if (!button || !status) return;
+
+  button.addEventListener('click', async function () {
+    const upi = 'shwetangisrivastava@fam';
+
+    try {
+      await navigator.clipboard.writeText(upi);
+      status.textContent = 'UPI ID copied successfully!';
+    } catch (error) {
+      status.textContent = 'Copy unavailable. Please copy manually: ' + upi;
+    }
+  });
+})();
 </script>
 
 <footer><div class="footer-brand"><img src="minho-logo-transparent.png" alt="MINHO — Creative Writing & Editing Studio" /><span>© 2026 MINHO Studio</span></div><span>Where words take flight.</span></footer>
